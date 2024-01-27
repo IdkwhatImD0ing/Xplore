@@ -1,12 +1,13 @@
+import styles from "../page.module.css";
 const AttractionTypeInput = () => {
     async function onPromptSubmit(event) {
         'use server'
     }
     return (
         <>
-        <div>
-            <h1 className="text-xl font-bold">Input Attraction Types</h1>
-            <form action={onPromptSubmit}>
+        <div className={styles.card}>
+            <h1>Input Attraction Types</h1>
+            <form action={onPromptSubmit} className={styles.attractionTypeForm}>
                 <label for="prompt">Prompt: <input type="text" name="prompt" /> </label>
                 <button type='submit'>Confirm</button>
             </form>

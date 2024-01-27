@@ -1,5 +1,5 @@
 import { createContext } from "react";
 
-const CityInfoContext = createContext(null);
-const ItineraryContext = createContext(null);
-export { CityInfoContext, ItineraryContext };
+export const CitiesDaysContext = createContext(null);
+export const ItineraryContext = createContext(null);
+

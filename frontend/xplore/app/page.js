@@ -1,19 +1,23 @@
+import Image from "next/image";
+import styles from "./page.module.css";
 import { CityInput } from "./components/cityinput";
 import { AttractionTypeInput } from "./components/attractiontypeinput";
-import { AttractionResultsOutput } from "./components/attractionresultsoutput"
-import { useState } from "react";
-import { ItineraryContext } from "./contexts";
+import { AttractionResultsOutput } from "./components/attractionresultsoutput";
+import { DaySwitcher } from "./components/dayswitcher";
+import { CalculateRoutes } from "./components/calculateroutes";
 
 export default function Home() {
-  const [location, setLocation] = useState([]);
-
   return (
-    <main className="flex flex-row items-start justify-between m-8">
-      <div className="flex flex-col">
+    <main className={styles.main}>
+      <div id="leftcol">
         <CityInput />
         <AttractionTypeInput />
       </div>
-      <AttractionResultsOutput />
+      <div id="rightcol">
+        <AttractionResultsOutput />
+        <DaySwitcher />
+        <CalculateRoutes />
+      </div>
     </main>
   );
 }

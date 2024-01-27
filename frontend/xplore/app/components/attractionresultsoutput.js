@@ -1,17 +1,18 @@
+import styles from "../page.module.css";
 const AttractionResultsOutput = () => {
     return (
         <>
-        <div>
-            <h1 className="text-xl font-bold">Attraction Results</h1>
+        <div className={styles.card}>
+            <h1>Attraction Results</h1>
             <div>
-                <h2 className="text-lg">Must-See Attractions</h2>
+                <h2>Must-See Attractions</h2>
                 <ul>
                     <li>Attraction1</li>
                     <li>Attraction2</li>
                 </ul>
             </div>
             <div>
-                <h2 className="text-lg">Tailored to your Liking</h2>
+                <h2>Tailored to your Liking</h2>
                 <ul>
                     <li>Attraction1</li>
                     <li>Attraction2</li>

@@ -1,3 +1,5 @@
+import styles from "../page.module.css";
+
 const CityInput = () => {
     // user inputs cities/hotels, duration for each in days,
     // user inputs preferred type of attractions (museums, tech, nature, etc)
@@ -11,11 +13,11 @@ const CityInput = () => {
 
     return (
         <>
-            <div>
-                <h1 className="text-xl font-bold">Input Cities</h1>
+            <div className={styles.card}>
+                <h1>Input Cities</h1>
                 <form action={onCitySubmit}>
-                    <label for="city">City: <input type="text" name="city" /></label>
-                    <label for="days">Number of Days: <input type="number" name="days" /> </label>
+                    <label for="city"><input type="text" name="city" /> City</label>
+                    <label for="days"><input type="number" name="days" /> Days</label>
                     <button type='submit'>Add</button>
                 </form>
 
