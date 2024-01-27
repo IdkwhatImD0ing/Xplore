@@ -1,0 +1,38 @@
+.main {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-left: 30px;
+  margin-right: 30px;
+  height: 100vh;
+}
+
+
+.card {
+  border-radius: 10px;
+  background-color: var(--foreground);
+  color: var(--text);
+  padding: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.main div {
+  display: flex;
+  align-items: stretch;
+  flex-shrink: 3;
+  flex-direction: column;
+  /* justify-content: space-between; */
+}
+
+.main .flexrow {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.card .attractionTypeForm {
+  display: flex;
+  flex-direction: row;
+
+}
