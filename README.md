@@ -7,7 +7,7 @@ Thus, the concept for Xplore was born: an intuitive app designed to take the ted
 ## What it does
 #### Xplore is the ideal partner for your travel adventures, always prepared to support you on your next journey.
 As your ultimate travel companion, Xplore primarily focuses on three key functions:
-1. Travelers can specify their city destinations, the duration of stay in each city, travel radius, and the types of attractions they wish to visit.
+1. Travelers can specify their city destinations, travel radius, and the types of attractions they wish to visit.
 2. Users can tailor their journey using Xplore's AI-driven recommendations for attractions.
 3. Xplore generates and stores routes for adventurers to visit their selected attractions, enhancing their travel experience.
 
