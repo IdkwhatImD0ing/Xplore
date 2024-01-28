@@ -9,9 +9,27 @@ from dotenv import load_dotenv
 from ga import create_graph_with_manhattan_distances, run_genetic_algorithm
 from attractions import attractions_wrapper
 
+import googlemaps
+from datetime import datetime
+import os
+
+gmaps = googlemaps.Client(key=os.getenv("GOOGLE_CLOUD_API_KEY"))
+
+# Add cors
+from fastapi.middleware.cors import CORSMiddleware
+origins = ["*"]
+
+
 load_dotenv()
 
 app = FastAPI()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_methods=["POST"],
+    allow_headers=["*"],
+)
 
 class Place(BaseModel):
     name: str
@@ -31,6 +49,9 @@ class GeneticAlgorithmInput(BaseModel):
 class AttractionsInput(BaseModel):
     cities: List[str]
     preferences: str  
+    
+class GeocodeInput(BaseModel):
+    cities: List[str]
 
 @app.get("/")
 def read_root():
@@ -82,3 +103,20 @@ def generate_route(data: GeneticAlgorithmInput):
 async def get_attractions(data: AttractionsInput):
     attractions = await attractions_wrapper(data.cities, data.preferences)
     return attractions
+
+@app.post("/geocode-multiple/")
+async def geocode_multiple_cities(data: GeocodeInput):
+    locations = []
+    for city in data.cities:
+        try:
+            geocode_result = gmaps.geocode(city)
+            if not geocode_result:
+                locations.append({"name": city, "lat": None, "lng": None, "error": "Address not found"})
+                continue
+
+            location = geocode_result[0]['geometry']['location']
+            locations.append({"name": city, "lat": location['lat'], "lng": location['lng']})
+        except Exception as e:
+            locations.append({"name": city, "lat": None, "lng": None, "error": str(e)})
+    
+    return locations
