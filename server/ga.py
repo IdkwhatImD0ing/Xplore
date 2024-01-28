@@ -47,7 +47,7 @@ def run_genetic_algorithm(graph, initial_pop_size, start_attraction, end_attract
     bestFitness = float('inf')
     decay_rate = (initial_mutation_rate - minimum_mutation_rate) / generations
     population = CreateInitialPopulation(initial_pop_size, graph, start_attraction, end_attraction, final_path_size, all_start_end_points)
-        
+    
     for generation in range(generations):
         RankList = [(i, calculate_path_distance(graph, path)) for i, path in enumerate(population)]
         RankList.sort(key=lambda item: item[1])
@@ -63,7 +63,7 @@ def run_genetic_algorithm(graph, initial_pop_size, start_attraction, end_attract
             bestFitness = currentBestFitness
             bestPath = population[RankList[0][0]]
             
-        matingPool = CreateMatingPool(population, RankList)
+        matingPool = CreateMatingPool(population, RankList, tournament_size=len(population)//2)
         
         newPopulation = []
         
@@ -78,17 +78,31 @@ def run_genetic_algorithm(graph, initial_pop_size, start_attraction, end_attract
             end_index = random.randint(start_index, len(Parent1)-2)
             
             child = Crossover(Parent1, Parent2, start_index, end_index, all_start_end_points)
+            # if child[0] == 'Oracle Park Parking' and child[len(child)-1] != 'The Tech Interactive':
+            #     print("Crossover")
+            #     print("Parent1")
+            #     print(Parent1)
+            #     print("Parent2")
+            #     print(Parent2)
+            #     print("Child")
+            #     print(child)
             
             
             # Randomly mutate the child
             if random.random() < mutation_rate:
                 child = Mutate(child, graph, all_start_end_points)
+                # If child starts with Oracle Park Parking and doesnt end with The Tech Interactive
+                if child[0] == 'Oracle Park Parking' and child[len(child)-1] != 'The Tech Interactive':
+                    print("Mutation")
+                    print(child)
+                
                 
             newPopulation.append(child)
             
         # Retain size/2 best individuals from the previous population
         newPopulation += population[:size//2]
         population = newPopulation
+        # print([path for path in population if path[0] == 'Oracle Park Parking' and path[len(path)-1] != 'The Tech Interactive'])
     return bestPath, bestFitness
 
 def calculate_path_distance(graph, path):
@@ -163,16 +177,35 @@ def Crossover(Parent1, Parent2, Start_Index, End_Index, all_start_end_points):
     Start_Index = max(Start_Index, 1)
     End_Index = min(End_Index, len(Parent1) - 2)
     
+    
+    
     # Slice from Parent1 for the crossover section
     p1_section = Parent1[Start_Index:End_Index+1]
     
     # Remainder of the attractions that will be filled in from Parent2
     remainder = [attraction for attraction in Parent2 if attraction not in p1_section]
     
+    
     # Construct the child: attractions before the crossover section from Parent2, 
     # the crossover section from Parent1, and the rest from Parent2
     child = remainder[:Start_Index] + p1_section + remainder[Start_Index:]
     
+    if len(child) > 5:
+        print("Parent1")
+        print(Parent1)
+        print("Parent2")
+        print(Parent2)
+        print("p1_section")
+        print(p1_section)
+        print("remainder")
+        print(remainder)
+        print("Start_Index")
+        print(remainder[:Start_Index])
+        print("End_Index")
+        print(remainder[End_Index:])
+        print("child")
+        print(child)
+        
     # Ensure that all attractions are included exactly once
     # Find missing attractions and duplicate attractions in the child
     all_attractions = set(Parent1) - set(all_start_end_points)
@@ -187,7 +220,6 @@ def Crossover(Parent1, Parent2, Start_Index, End_Index, all_start_end_points):
                 
                 if not missing_attractions:
                     break
-
     return child
 
 

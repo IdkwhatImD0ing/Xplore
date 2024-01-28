@@ -1,4 +1,5 @@
 'use client'
+import MapComponent from './MapComponent'
 import {Box, Button, Text, Flex} from '@chakra-ui/react'
 import React, {useState} from 'react'
 import RouteSelector from './RouteSelector'
@@ -6,8 +7,11 @@ import DayAccordion from './DayAccordion'
 
 const MapPage = ({routePlans}) => {
   const [currentRouteIndex, setCurrentRouteIndex] = useState(0)
+  const [expandedDayIndex, setExpandedDayIndex] = useState(0) // State to keep track of the expanded day
 
   const currentRoute = routePlans[currentRouteIndex]
+  const currentDay = currentRoute[expandedDayIndex] // currentDay is an array of points of interest
+  // [{name: 'attraction', lat: 0, lon: 0}, ...]
 
   const nextRoute = () => {
     setCurrentRouteIndex((prevIndex) => (prevIndex + 1) % routePlans.length)
@@ -22,22 +26,24 @@ const MapPage = ({routePlans}) => {
   return (
     <Flex w="100%" h="100vh">
       <Box flex="1" maxWidth="300px">
-        {' '}
-        {/* Adjust maxWidth as needed */}
         <RouteSelector
           currentRouteIndex={currentRouteIndex}
           totalRoutes={routePlans.length}
           nextRoute={nextRoute}
           prevRoute={prevRoute}
         />
-        <DayAccordion route={currentRoute} />
+        <DayAccordion
+          route={currentRoute}
+          expandedDayIndex={expandedDayIndex}
+          setExpandedDayIndex={setExpandedDayIndex}
+        />
       </Box>
       <Box flex="2" p={5}>
-        {/* Map component will go here */}
+        {currentRoute && <MapComponent currentDay={currentDay} />}
         <Button
           colorScheme="green"
           position="absolute"
-          right="16px"
+          left="16px"
           bottom="16px"
         >
           Use this route

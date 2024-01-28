@@ -71,7 +71,7 @@ export default function Wizard() {
     // Prepare the payload for the POST request
     const payload = {
       places,
-      initial_pop_size: 10,
+      initial_pop_size: 100,
       start_attractions: startAttractions.map((attr) => attr.name),
       end_attractions: endAttractions.map((attr) => attr.name),
       final_path_size: 5,
