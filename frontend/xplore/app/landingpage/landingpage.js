@@ -12,21 +12,35 @@ const LandingPage = () => {
   };
 
   return (
-    <Container maxW="100%" p={0}>
-      <Flex direction="column" height="100vh" justifyContent="center">
-        {" "}
-        {/* Adjusted for vertical centering */}
+    <Container
+      maxW="100%"
+      p={0}
+      bgImage="url('/bg1.png')" // Set the background image using the correct path
+      bgPosition="center 10%" // Center the background image
+      bgRepeat="no-repeat" // Do not repeat the background image
+      bgSize="cover"
+    >
+      <Flex direction="column" height="100vh" justifyContent="flex-start" pt = "20vh" >
         <Flex
           direction="column"
-          justify="center"
-          align="center"
-          textAlign="center"
+          justify="center" 
+          align="center" 
+          textAlign="center" 
           p={4}
         >
-          <Box maxWidth="90%" w="full" mx="auto">
-            <Heading as="h1" size="4xl" mb="4" color="purple.500">
+          {/* Rounded rectangular box */}
+          <Box
+            maxWidth="52%"
+            w="full" 
+            mx="auto" 
+            p={12} // Padding inside the box
+            bg="whiteAlpha.800" // Light color background with some transparency
+            borderRadius="64px" // Rounded corners
+            boxShadow="lg" // Optional shadow for depth
+          >
+            <Heading as="h1" size="3xl" mb="4" color="purple.900">
               Plan. Discover.{" "}
-              <Box as="span" color="purple.900">
+              <Box as="span" color="purple.500">
                 Xplore.
               </Box>
             </Heading>
@@ -41,7 +55,7 @@ const LandingPage = () => {
               fontSize="2xl"
               px={8}
               py={6}
-              mb={4} // Reduced bottom margin to move closer to the text
+              mb={4}
               _hover={{ bg: "purple.600" }}
               onClick={handleGetStartedClick}
             >
@@ -49,44 +63,42 @@ const LandingPage = () => {
             </Button>
           </Box>
         </Flex>
-
-
       </Flex>
       <Flex direction="column" p={4}>
-          <Box height={"92vh"} alignItems={"center"}>
-            <Flex
-              width="100%"
-              height="100vh"
-              alignItems={"center"}
-              justifyContent="center"
-              mb={6}
-            >
-              <Box width="100%" bg="purple.200" p={4} borderRadius="md" mr={4}>
-                {" "}
-                {/* Width 100% */}
-                <Text fontSize="lg">Feature One</Text>
-                <Text fontSize="md">Blah</Text>
-              </Box>
-              <Box width="100%" bg="purple.200" p={4} borderRadius="md" mr={4}>
-                {" "}
-                {/* Width 100% */}
-                <Text fontSize="lg">Feature Two</Text>
-                <Text fontSize="md">Blah</Text>
-              </Box>
-              <Box width="100%" bg="purple.200" p={4} borderRadius="md">
-                {" "}
-                {/* Width 100% */}
-                <Text fontSize="lg">Feature Three</Text>
-                <Text fontSize="md">Blah</Text>
-              </Box>
-            </Flex>
-          </Box>
-        </Flex>
-        <Box as="footer" bg="purple.100" py={2} textAlign="center">
-          <Text fontSize="sm" color="gray.600">
-            Powered by Yelp API, Google Cloud API, OpenAI API
-          </Text>
+        <Box height={"92vh"} alignItems={"center"}>
+          <Flex
+            width="100%"
+            height="100vh"
+            alignItems={"center"}
+            justifyContent="center"
+            mb={6}
+          >
+            <Box width="100%" bg="purple.200" p={4} borderRadius="md" mr={4}>
+              {" "}
+              {/* Width 100% */}
+              <Text fontSize="lg">Feature One</Text>
+              <Text fontSize="md">Blah</Text>
+            </Box>
+            <Box width="100%" bg="purple.200" p={4} borderRadius="md" mr={4}>
+              {" "}
+              {/* Width 100% */}
+              <Text fontSize="lg">Feature Two</Text>
+              <Text fontSize="md">Blah</Text>
+            </Box>
+            <Box width="100%" bg="purple.200" p={4} borderRadius="md">
+              {" "}
+              {/* Width 100% */}
+              <Text fontSize="lg">Feature Three</Text>
+              <Text fontSize="md">Blah</Text>
+            </Box>
+          </Flex>
         </Box>
+      </Flex>
+      <Box as="footer" bg="purple.100" py={2} textAlign="center">
+        <Text fontSize="sm" color="gray.600">
+          Powered by Yelp API, Google Cloud API, OpenAI API
+        </Text>
+      </Box>
     </Container>
   );
 };
