@@ -1,15 +1,8 @@
 // app/providers.tsx
-"use client";
+'use client'
 
-import { ChakraProvider } from "@chakra-ui/react";
-import { doc, getFirestore } from "firebase/firestore";
-import {
-  FirebaseAppProvider,
-  FirestoreProvider,
-  useFirestoreDocData,
-  useFirestore,
-  useFirebaseApp,
-} from "reactfire";
+import {ChakraProvider} from '@chakra-ui/react'
+import {FirebaseAppProvider} from 'reactfire'
 
 const firebaseConfig = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
@@ -18,20 +11,12 @@ const firebaseConfig = {
   storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
   messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
   appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
-};
-
-export function App({ children }) {
-  const firestoreInstance = getFirestore(useFirebaseApp());
-  return (
-    <FirestoreProvider sdk={firestoreInstance}>
-      <ChakraProvider>{children}</ChakraProvider>
-    </FirestoreProvider>
-  );
 }
-export function Providers({ children }) {
+
+export default function Providers({children}) {
   return (
     <FirebaseAppProvider firebaseConfig={firebaseConfig}>
-      <App children={children} />
+      <ChakraProvider>{children}</ChakraProvider>
     </FirebaseAppProvider>
-  );
+  )
 }
