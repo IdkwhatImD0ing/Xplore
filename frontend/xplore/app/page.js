@@ -5,11 +5,13 @@ import { AttractionTypeInput } from "./components/attractiontypeinput";
 import { AttractionResultsOutput } from "./components/attractionresultsoutput";
 import { DaySwitcher } from "./components/dayswitcher";
 import { CalculateRoutes } from "./components/calculateroutes";
+import { UserButton } from "@clerk/nextjs";
 
 export default function Home() {
   return (
     <main className={styles.main}>
       <div id="leftcol">
+      <UserButton afterSignOutUrl="/"/>
         <CityInput />
         <AttractionTypeInput />
       </div>
@@ -21,10 +23,3 @@ export default function Home() {
     </main>
   );
 }
-
-// export default function Home() {
-//   return (
-//     <div> </div>
-//   )
-  
-// }
