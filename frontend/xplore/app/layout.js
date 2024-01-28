@@ -1,5 +1,6 @@
 import "./globals.css";
 
+import { Box } from "@chakra-ui/react";
 import { ClerkProvider, UserButton } from "@clerk/nextjs";
 import { Inter } from "next/font/google";
 
@@ -21,7 +22,7 @@ export default function RootLayout({ children }) {
         <body className={inter.className}>
           <Providers>
             <Navbar userButton={<UserButton />} />
-            {children}
+            <Box pt="50px">{children}</Box>
           </Providers>
         </body>
       </html>
