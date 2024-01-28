@@ -21,6 +21,7 @@ const AttractionTypeInput = ({preferences, setPreferences}) => {
       <FormLabel paddingTop="1rem" marginBottom="0" textAlign="center">
         Prompt
       </FormLabel>
+      
       <Center>
         <Input
           type="text"

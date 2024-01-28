@@ -12,6 +12,7 @@ import {
   Text,
   useBreakpointValue,
   VStack,
+  Flex, 
 } from '@chakra-ui/react'
 
 const CityList = ({cities, setCities}) => {
@@ -55,57 +56,57 @@ const CityList = ({cities, setCities}) => {
   }
 
   return (
-    <Center py={['1rem', '2rem']}>
-      <VStack spacing={4} align="stretch" width={['90%', '80%', '70%', '60%']}>
-        <Box {...borderStyle}>
-          <List spacing={2}>
-            {cities.map((item, index) => (
-              <ListItem key={item.name} {...borderStyle}>
-                <HStack spacing={4} my="0.4rem" align="center">
-                  <Editable
-                    defaultValue={item.name}
-                    fontWeight="bold"
-                    flex={1}
-                    maxWidth="200px"
-                  >
-                    <EditablePreview />
-                    <EditableInput />
-                  </Editable>
-                  <Text>for</Text>
-                  <Editable
-                    defaultValue={item.days.toString()}
-                    fontWeight="bold"
-                    maxWidth="100px"
-                  >
-                    <EditablePreview width={editableWidth} textAlign="center" />
-                    <EditableInput width={editableWidth} textAlign="center" />
-                  </Editable>
-                  <Text>days</Text>
-                  <VStack align="center" minWidth="50px" spacing={1}>
-                    {index !== 0 && (
-                      <IconButton
-                        size="sm"
-                        aria-label={`Move ${item.name} up`}
-                        icon={<ChevronUpIcon />}
-                        onClick={() => moveUp(index)}
-                      />
-                    )}
-                    {index !== cities.length - 1 && (
-                      <IconButton
-                        size="sm"
-                        aria-label={`Move ${item.name} down`}
-                        icon={<ChevronDownIcon />}
-                        onClick={() => moveDown(index)}
-                      />
-                    )}
-                  </VStack>
-                </HStack>
-              </ListItem>
-            ))}
-          </List>
-        </Box>
-      </VStack>
-    </Center>
+      <Box py={['1rem', '2rem']} maxWidth='500px' w="100%" margin="auto">
+        <VStack spacing={4} align="stretch">
+          <Box {...borderStyle}>
+            <List spacing={2}>
+              {cities.map((item, index) => (
+                <ListItem key={item.name} {...borderStyle}>
+                  <Flex flexRow='horizontal' my="0.4rem" justifyContent='space-between'>
+                    <Editable
+                      defaultValue={item.name}
+                      fontWeight="bold"
+                      flex={1}
+                      maxWidth="200px"
+                    >
+                      <EditablePreview />
+                      <EditableInput />
+                    </Editable>
+                    {/* <Text>for</Text>
+                    <Editable
+                      defaultValue={item.days.toString()}
+                      fontWeight="bold"
+                      maxWidth="100px"
+                    >
+                      <EditablePreview width={editableWidth} textAlign="center" />
+                      <EditableInput width={editableWidth} textAlign="center" />
+                    </Editable>
+                    <Text>days</Text> */}
+                    <VStack align="center" minWidth="50px" spacing={1}>
+                      {index !== 0 && (
+                        <IconButton
+                          size="sm"
+                          aria-label={`Move ${item.name} up`}
+                          icon={<ChevronUpIcon />}
+                          onClick={() => moveUp(index)}
+                        />
+                      )}
+                      {index !== cities.length - 1 && (
+                        <IconButton
+                          size="sm"
+                          aria-label={`Move ${item.name} down`}
+                          icon={<ChevronDownIcon />}
+                          onClick={() => moveDown(index)}
+                        />
+                      )}
+                    </VStack>
+                  </Flex>
+                </ListItem>
+              ))}
+            </List>
+          </Box>
+        </VStack>
+      </Box>
   )
 }
 
