@@ -136,7 +136,6 @@ const MapPage = ({routePlans}) => {
           Use this route
         </Button>
       </Box>
-      // Add AlertDialog for route name input
       <AlertDialog isOpen={isSaveDialogOpen} onClose={onClose}>
         <AlertDialogOverlay>
           <AlertDialogContent>
