@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import { Button, Image, Flex, Stack, Box } from "@chakra-ui/react";
 import { SignedOut, SignedIn, userButton } from "@clerk/nextjs";
 
-const Navbar = ({userButton}) => {
+const Navbar = ({ userButton }) => {
   const router = useRouter();
 
   const handleSignInClick = () => {
@@ -41,6 +41,7 @@ const Navbar = ({userButton}) => {
       left="0"
       right="0"
     >
+      {" "}
       <Image
         src="/icons/icon-192x192.png"
         alt="Company Logo"
@@ -65,6 +66,7 @@ const Navbar = ({userButton}) => {
             _hover={{ bg: "purple.400" }}
             onClick={handleSignUpClick}
           >
+            {" "}
             Sign Up
           </Button>
         </SignedOut>

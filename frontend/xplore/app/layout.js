@@ -1,11 +1,11 @@
 import "./globals.css";
 
+import { Box } from "@chakra-ui/react";
 import { ClerkProvider, UserButton } from "@clerk/nextjs";
 import { Inter } from "next/font/google";
 
 import Navbar from "./components/navbar";
 import Providers from "./providers";
-import { Box } from "@chakra-ui/react";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,10 +22,7 @@ export default function RootLayout({ children }) {
         <body className={inter.className}>
           <Providers>
             <Navbar userButton={<UserButton />} />
-            <Box pt ="50px">
-              {children}
-            </Box>
-            
+            <Box pt="50px">{children}</Box>
           </Providers>
         </body>
       </html>
