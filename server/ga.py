@@ -21,8 +21,7 @@ def create_graph_with_manhattan_distances(places):
             attraction2 = place2.name
             if i != j:
                 # Calculate Manhattan distance
-                distance = abs(place1.lat - place2.lat) + abs(place1.lon -
-                                                              place2.lon)
+                distance = abs(place1.lat - place2.lat) + abs(place1.lon - place2.lon)
                 graph[attraction1][attraction2] = distance
 
     return graph
@@ -77,8 +76,10 @@ def run_genetic_algorithm(
     )
 
     for generation in range(generations):
-        RankList = [(i, calculate_path_distance(graph, path))
-                    for i, path in enumerate(population)]
+        RankList = [
+            (i, calculate_path_distance(graph, path))
+            for i, path in enumerate(population)
+        ]
         RankList.sort(key=lambda item: item[1])
 
         mutation_rate = initial_mutation_rate - (generation * decay_rate)
@@ -95,9 +96,9 @@ def run_genetic_algorithm(
             bestFitness = currentBestFitness
             bestPath = population[RankList[0][0]]
 
-        matingPool = CreateMatingPool(population,
-                                      RankList,
-                                      tournament_size=len(population) // 2)
+        matingPool = CreateMatingPool(
+            population, RankList, tournament_size=len(population) // 2
+        )
 
         newPopulation = []
 
@@ -111,8 +112,9 @@ def run_genetic_algorithm(
             start_index = random.randint(1, len(Parent1) - 2)
             end_index = random.randint(start_index, len(Parent1) - 2)
 
-            child = Crossover(Parent1, Parent2, start_index, end_index,
-                              all_start_end_points)
+            child = Crossover(
+                Parent1, Parent2, start_index, end_index, all_start_end_points
+            )
 
             # Randomly mutate the child
             if random.random() < mutation_rate:
@@ -122,7 +124,7 @@ def run_genetic_algorithm(
             newPopulation.append(child)
 
         # Retain size/2 best individuals from the previous population
-        newPopulation += population[:size // 2]
+        newPopulation += population[: size // 2]
         population = newPopulation
     return bestPath, bestFitness
 
@@ -165,26 +167,27 @@ def Mutate(Child, graph, all_start_end_points):
     if mutation_type == "reverse":
         # Reverse mutation
         if (
-                len(Child) > 3
+            len(Child) > 3
         ):  # Ensure there are elements to reverse (excluding the first and last)
             start_index = random.randint(1, len(Child) - 3)
             end_index = random.randint(start_index, len(Child) - 2)
-            Child[start_index:end_index + 1] = Child[start_index:end_index +
-                                                     1][::-1]
+            Child[start_index : end_index + 1] = Child[start_index : end_index + 1][
+                ::-1
+            ]
 
     elif mutation_type == "replace":
         # Replacement mutation
         # Ensure there's an element to replace (excluding the first and last)
         if len(Child) > 2:
             # Get all possible attractions that are not in the child and not in all_start_end_points
-            possible_replacements = (set(graph.keys()) - set(Child) -
-                                     set(all_start_end_points))
+            possible_replacements = (
+                set(graph.keys()) - set(Child) - set(all_start_end_points)
+            )
             if possible_replacements:
                 # Select a random attraction from the child to replace (excluding the start and end attractions)
                 index_to_replace = random.randint(1, len(Child) - 2)
                 # Select a random replacement attraction
-                replacement_attraction = random.choice(
-                    list(possible_replacements))
+                replacement_attraction = random.choice(list(possible_replacements))
                 # Replace the attraction in the child
                 Child[index_to_replace] = replacement_attraction
     return Child
@@ -214,15 +217,14 @@ def Crossover(Parent1, Parent2, Start_Index, End_Index, all_start_end_points):
     End_Index = min(End_Index, len(Parent1) - 2)
 
     # Slice from Parent1 for the crossover section
-    p1_section = Parent1[Start_Index:End_Index + 1]
+    p1_section = Parent1[Start_Index : End_Index + 1]
 
     # Indices in Parent2 to be skipped
     indices_to_skip = range(Start_Index, End_Index + 1)
 
     # Remainder of the attractions that will be filled in from Parent2, skipping the indices_to_skip
     remainder = [
-        attraction for i, attraction in enumerate(Parent2)
-        if i not in indices_to_skip
+        attraction for i, attraction in enumerate(Parent2) if i not in indices_to_skip
     ]
 
     # Construct the child: attractions before the crossover section from remainder,
@@ -237,9 +239,9 @@ def Crossover(Parent1, Parent2, Start_Index, End_Index, all_start_end_points):
 
     # Check for any missing attractions in the child and replace the duplicates with the missing attractions
     if missing_attractions:
-        for i in range(1,
-                       len(child) -
-                       1):  # Ensure we don't replace the start and end points
+        for i in range(
+            1, len(child) - 1
+        ):  # Ensure we don't replace the start and end points
             if child[i] in all_start_end_points or child.count(child[i]) > 1:
                 child[i] = missing_attractions.pop()
 
@@ -294,8 +296,9 @@ def CreateMatingPool(population, RankList, tournament_size=3):
     return matingPool
 
 
-def CreateInitialPopulation(size, graph, start_attraction, end_attraction,
-                            final_path_size, all_start_end_points):
+def CreateInitialPopulation(
+    size, graph, start_attraction, end_attraction, final_path_size, all_start_end_points
+):
     """Generates the initial population for the genetic algorithm
 
     :param size: The size of the list (initial_population) to be returned.
@@ -319,15 +322,14 @@ def CreateInitialPopulation(size, graph, start_attraction, end_attraction,
 
     # Remove all start and end attractions from the list of attractions to visit
     attractions = [
-        attraction for attraction in attractions
+        attraction
+        for attraction in attractions
         if attraction not in all_start_end_points
     ]
 
     for i in range(size):
         path = [start_attraction]  # Initialize path with start_attraction
-        remaining_attractions = set(attractions) - {
-            start_attraction, end_attraction
-        }
+        remaining_attractions = set(attractions) - {start_attraction, end_attraction}
 
         # Random initialization
         path += random.sample(
