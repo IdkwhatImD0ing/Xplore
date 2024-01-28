@@ -7,7 +7,7 @@ import random
 from dotenv import load_dotenv
 
 from ga import create_graph_with_manhattan_distances, run_genetic_algorithm
-
+from attractions import attractions_wrapper
 
 load_dotenv()
 
@@ -26,7 +26,11 @@ class GeneticAlgorithmInput(BaseModel):
     final_path_size: int
     generations: int
     initial_mutation_rate: float
-    minimum_mutation_rate: float    
+    minimum_mutation_rate: float
+    
+class AttractionsInput(BaseModel):
+    cities: List[str]
+    preferences: str  
 
 @app.get("/")
 def read_root():
@@ -74,3 +78,7 @@ def generate_route(data: GeneticAlgorithmInput):
 
     return all_variations
 
+@app.post("/attractions/")
+async def get_attractions(data: AttractionsInput):
+    attractions = await attractions_wrapper(data.cities, data.preferences)
+    return attractions
