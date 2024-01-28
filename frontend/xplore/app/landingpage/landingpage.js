@@ -1,21 +1,14 @@
-'use client';
+"use client";
 
 import React from "react";
-import {useRouter} from 'next/navigation'; // Import the useRouter hook
-import {
-  Box,
-  Heading,
-  Text,
-  Button,
-  Container,
-  Flex,
-} from "@chakra-ui/react";
+import { useRouter } from "next/navigation"; // Import the useRouter hook
+import { Box, Heading, Text, Button, Container, Flex } from "@chakra-ui/react";
 
 const LandingPage = () => {
   const router = useRouter(); // Create an instance of the router
 
   const handleGetStartedClick = () => {
-    router.push('/city-select');
+    router.push("/city-select");
   };
 
   return (
