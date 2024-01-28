@@ -8,7 +8,7 @@ export default function SignInPage() {
   return (
     <Container
       minH="100vh"
-      minW = "100vw"
+      minW="100vw"
       display="flex"
       alignItems="center"
       justifyContent="center"
