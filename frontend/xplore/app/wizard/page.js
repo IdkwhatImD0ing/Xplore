@@ -7,6 +7,7 @@ import {useFirestore} from 'reactfire'
 import {useUser} from '@clerk/nextjs'
 import {doc, getDoc} from 'firebase/firestore'
 import {useSearchParams} from 'next/navigation'
+import LoadingPage from '../loading'
 
 export default function Wizard() {
   const [mode, setMode] = useState(0)
@@ -16,6 +17,8 @@ export default function Wizard() {
   const [attractions, setAttractions] = useState([])
   const [selectedAttractions, setSelectedAttractions] = useState([])
   const [routes, setRoutes] = useState([])
+
+  const [loading, setLoading] = useState(false)
 
   const firestore = useFirestore()
   const searchParams = useSearchParams()
@@ -46,6 +49,7 @@ export default function Wizard() {
 
   const citiesSubmit = () => {
     // Need to just get the name of cities into a list
+    setLoading(true)
     const cityNames = cities.map((city) => city.name)
     fetch('https://api.art3m1s.me/xplore/attractions', {
       method: 'POST',
@@ -59,7 +63,6 @@ export default function Wizard() {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log(data)
         setAttractions(data)
         return fetch('https://api.art3m1s.me/xplore/geocode-multiple', {
           method: 'POST',
@@ -71,9 +74,9 @@ export default function Wizard() {
       })
       .then((response) => response.json())
       .then((geocodeData) => {
-        console.log(geocodeData)
         // Update citiesObjects with the geocode information
         setCitiesObjects(geocodeData)
+        setLoading(false)
         setMode(1)
       })
       .catch((error) => {
@@ -142,6 +145,10 @@ export default function Wizard() {
       .catch((error) => {
         console.error('Error:', error)
       })
+  }
+
+  if (loading) {
+    return <LoadingPage />
   }
 
   if (mode === 2) {

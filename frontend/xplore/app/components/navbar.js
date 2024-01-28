@@ -1,32 +1,32 @@
-"use client";
+'use client'
 
-import React from "react";
-import { useRouter } from "next/navigation";
-import { Button, Image, Flex, Stack, Box } from "@chakra-ui/react";
-import { SignedOut, SignedIn, userButton } from "@clerk/nextjs";
+import React from 'react'
+import {useRouter} from 'next/navigation'
+import {Button, Image, Flex, Stack, Box} from '@chakra-ui/react'
+import {SignedOut, SignedIn, userButton} from '@clerk/nextjs'
 
-const Navbar = ({ userButton }) => {
-  const router = useRouter();
+const Navbar = ({userButton}) => {
+  const router = useRouter()
 
   const handleSignInClick = () => {
-    router.push("/sign-in");
-  };
+    router.push('/sign-in')
+  }
 
   const handleSignUpClick = () => {
-    router.push("/sign-up");
-  };
+    router.push('/sign-up')
+  }
 
   const handleLogoClick = () => {
-    router.push("/");
-  };
+    router.push('/')
+  }
 
   const handleWizardClick = () => {
-    router.push("/wizard");
-  };
+    router.push('/wizard')
+  }
 
   const handleMyRoutesClick = () => {
-    router.push("/inputRoute");
-  };
+    router.push('/routes')
+  }
 
   return (
     <Flex
@@ -41,7 +41,7 @@ const Navbar = ({ userButton }) => {
       left="0"
       right="0"
     >
-      {" "}
+      {' '}
       <Image
         src="/icons/icon-192x192.png"
         alt="Company Logo"
@@ -55,7 +55,7 @@ const Navbar = ({ userButton }) => {
           <Button
             colorScheme="purple"
             bg="purple.300"
-            _hover={{ bg: "purple.400" }}
+            _hover={{bg: 'purple.400'}}
             onClick={handleSignInClick}
           >
             Sign In
@@ -63,10 +63,10 @@ const Navbar = ({ userButton }) => {
           <Button
             colorScheme="purple"
             bg="purple.300"
-            _hover={{ bg: "purple.400" }}
+            _hover={{bg: 'purple.400'}}
             onClick={handleSignUpClick}
           >
-            {" "}
+            {' '}
             Sign Up
           </Button>
         </SignedOut>
@@ -74,7 +74,7 @@ const Navbar = ({ userButton }) => {
           <Button
             colorScheme="purple"
             bg="purple.300"
-            _hover={{ bg: "purple.400" }}
+            _hover={{bg: 'purple.400'}}
             onClick={handleWizardClick}
           >
             Wizard
@@ -82,7 +82,7 @@ const Navbar = ({ userButton }) => {
           <Button
             colorScheme="purple"
             bg="purple.300"
-            _hover={{ bg: "purple.400" }}
+            _hover={{bg: 'purple.400'}}
             onClick={handleMyRoutesClick}
           >
             My Routes
@@ -91,7 +91,7 @@ const Navbar = ({ userButton }) => {
         </SignedIn>
       </Stack>
     </Flex>
-  );
-};
+  )
+}
 
-export default Navbar;
+export default Navbar
