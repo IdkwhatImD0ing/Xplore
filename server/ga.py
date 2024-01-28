@@ -58,7 +58,7 @@ def run_genetic_algorithm(
     :type initial_mutation_rate: float
     :param minimum_mutation_rate: The minimum mutation rate.
     :type minimum_mutation_rate: float
-    :param all_start_end_points:
+    :param all_start_end_points: param debug:  (Default value = False)
     :param debug:  (Default value = False)
     :returns: bestPath-> The best path found by the genetic algorithm.
     :rtype: list

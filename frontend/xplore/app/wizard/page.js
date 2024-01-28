@@ -82,7 +82,8 @@ export default function Wizard() {
   }
 
   const submitAttractions = () => {
-    // Ensure citiesObjects has at least 2 elements for start and end attractions
+    // Ensure citiesObjects has at least 2 elements for start and end
+    // attractions
     if (citiesObjects.length < 2) {
       console.error('Not enough cities to generate start and end attractions.')
       return

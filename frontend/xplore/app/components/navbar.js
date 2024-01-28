@@ -3,9 +3,10 @@
 import React from "react";
 import { useRouter } from "next/navigation";
 import { Button, Image, Flex, Stack, Box } from "@chakra-ui/react";
+import { SignedOut, SignedIn, userButton } from "@clerk/nextjs";
 
 const Navbar = ({ userButton }) => {
-  const router = useRouter(); // Create an instance of the router
+  const router = useRouter();
 
   const handleSignInClick = () => {
     router.push("/sign-in");
@@ -17,6 +18,14 @@ const Navbar = ({ userButton }) => {
 
   const handleLogoClick = () => {
     router.push("/");
+  };
+
+  const handleWizardClick = () => {
+    router.push("/wizard");
+  };
+
+  const handleMyRoutesClick = () => {
+    router.push("/inputRoute");
   };
 
   return (
@@ -37,30 +46,49 @@ const Navbar = ({ userButton }) => {
         src="/icons/icon-192x192.png"
         alt="Company Logo"
         maxW="65px"
-        height="auto"
+        height="50px"
         cursor="pointer"
         onClick={handleLogoClick}
       />
       <Stack direction="row" spacing={4} align="center">
-        <Button
-          colorScheme="purple"
-          bg="purple.300"
-          _hover={{ bg: "purple.400" }}
-          width="100px"
-          onClick={handleSignInClick}
-        >
-          Sign In
-        </Button>
-        <Button
-          colorScheme="purple"
-          bg="purple.300"
-          _hover={{ bg: "purple.400" }}
-          width="100px"
-          onClick={handleSignUpClick}
-        >
-          Sign Up
-        </Button>
-        <Box pr={2}>{userButton}</Box>
+        <SignedOut>
+          <Button
+            colorScheme="purple"
+            bg="purple.300"
+            _hover={{ bg: "purple.400" }}
+            onClick={handleSignInClick}
+          >
+            Sign In
+          </Button>
+          <Button
+            colorScheme="purple"
+            bg="purple.300"
+            _hover={{ bg: "purple.400" }}
+            onClick={handleSignUpClick}
+          >
+            {" "}
+            Sign Up
+          </Button>
+        </SignedOut>
+        <SignedIn>
+          <Button
+            colorScheme="purple"
+            bg="purple.300"
+            _hover={{ bg: "purple.400" }}
+            onClick={handleWizardClick}
+          >
+            Wizard
+          </Button>
+          <Button
+            colorScheme="purple"
+            bg="purple.300"
+            _hover={{ bg: "purple.400" }}
+            onClick={handleMyRoutesClick}
+          >
+            My Routes
+          </Button>
+          <Box pr={2}>{userButton}</Box>
+        </SignedIn>
       </Stack>
     </Flex>
   );
