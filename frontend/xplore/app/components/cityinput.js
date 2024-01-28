@@ -1,5 +1,3 @@
-import styles from "../page.module.css";
-
 const CityInput = () => {
     // user inputs cities/hotels, duration for each in days,
     // user inputs preferred type of attractions (museums, tech, nature, etc)

@@ -2,7 +2,6 @@
 import { CityInput } from "./cityinput";
 import { AttractionTypeInput } from "./attractiontypeinput";
 import CityList from "./citylist";
-import styles from "./page.module.css";
 import { Heading, Button, Center } from "@chakra-ui/react";
 
 export default function Home() {
