@@ -3,7 +3,8 @@ import {
   Button,
   Image,
   Flex,
-  Spacer,
+  Stack,
+  Box, // Import the Box component
 } from "@chakra-ui/react";
 
 const Navbar = ({ userButton }) => {
@@ -21,28 +22,28 @@ const Navbar = ({ userButton }) => {
         alt="Company Logo"
         maxW="65px"
         height="auto"
-        mb="2"
       />
-      <Flex justify="space-between">
-        <Spacer />
+      <Stack direction="row" spacing={4} align="center">
         <Button
           colorScheme="purple"
           bg="purple.300"
-          mr={2}
           _hover={{ bg: "purple.400" }}
+          width="100px" // Set a fixed width for the button
         >
           Sign In
         </Button>
         <Button
           colorScheme="purple"
           bg="purple.300"
-          mr={2}
           _hover={{ bg: "purple.400" }}
+          width="100px" // Set a fixed width for the button
         >
           Sign Up
         </Button>
-        {userButton} {/* Render the UserButton component here */}
-      </Flex>
+        <Box pr={2}> {/* Add padding on the right side of the userButton */}
+          {userButton} {/* Render the UserButton component here */}
+        </Box>
+      </Stack>
     </Flex>
   );
 };
