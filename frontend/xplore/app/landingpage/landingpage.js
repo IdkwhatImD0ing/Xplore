@@ -1,62 +1,18 @@
-import React from 'react'
+import React from "react";
 import {
   Box,
   Heading,
   Text,
   Button,
-  Image,
   Container,
   Flex,
-  Spacer,
-} from '@chakra-ui/react'
+} from "@chakra-ui/react";
 
-const LandingPage = ({userButton}) => {
-  const currentYear = new Date().getFullYear()
+const LandingPage = () => {
   return (
     <Container maxW="100%" p={0}>
       <Flex direction="column">
         {/* Header with Sign In button */}
-        <Flex
-          as="header"
-          align="center"
-          justify="space-between"
-          bg="purple.500"
-          p={3}
-          color="white"
-        >
-          <Image
-            src="/icons/icon-192x192.png"
-            alt="Company Logo"
-            maxW="80px"
-            height="auto"
-            mb="4"
-          />
-          <Flex justify="space-between">
-          <Spacer />
-          <Button
-            colorScheme="purple"
-            bg="purple.300"
-            mr={2}
-            _hover={{bg: 'purple.400'}}
-            
-          >
-            Sign In
-          </Button>
-          <Button
-            colorScheme="purple"
-            bg="purple.300"
-            mr={2}
-            _hover={{bg: 'purple.400'}}
-            
-          >
-            Sign Up
-          </Button>
-
-          {userButton} {/* Render the UserButton component here */}
-
-          </Flex>
-        </Flex>
-
         {/* Main Content */}
         <Flex
           direction="column"
@@ -71,7 +27,7 @@ const LandingPage = ({userButton}) => {
               Plan. Discover. Xplore.
             </Heading>
             <Text fontSize="md" mb="10" color="gray.600">
-              {' '}
+              {" "}
               {/* Increased bottom margin */}
               The best travel companion ever!
             </Text>
@@ -80,7 +36,7 @@ const LandingPage = ({userButton}) => {
               colorScheme="purple"
               size="lg"
               mb={6}
-              _hover={{bg: 'purple.600'}}
+              _hover={{ bg: "purple.600" }}
             >
               Get Started
             </Button>
@@ -120,7 +76,7 @@ const LandingPage = ({userButton}) => {
         </Box>
       </Flex>
     </Container>
-  )
-}
+  );
+};
 
-export default LandingPage
+export default LandingPage;
