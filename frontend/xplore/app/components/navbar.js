@@ -1,61 +1,61 @@
-'use client'
+"use client";
 
-import React from 'react'
-import{useRouter} from 'next/navigation'
-import{Button, Image, Flex, Stack, Box} from '@chakra-ui/react'
+import React from "react";
+import { useRouter } from "next/navigation";
+import { Button, Image, Flex, Stack, Box } from "@chakra-ui/react";
 
-const Navbar =
-    ({userButton}) => {
-      const router = useRouter() // Create an instance of the router
+const Navbar = ({ userButton }) => {
+  const router = useRouter(); // Create an instance of the router
 
   const handleSignInClick = () => {
-    router.push('/sign-in')
-  }
+    router.push("/sign-in");
+  };
 
   const handleSignUpClick = () => {
-    router.push('/sign-up')
-  }
+    router.push("/sign-up");
+  };
 
   const handleLogoClick = () => {
-    router.push('/')
-  }
+    router.push("/");
+  };
 
   return (
     <Flex
       as="header"
-  align = "center"
-  justify = "space-between"
-  bg = "purple.900"
-  p = {3} color = "white"
-  position = "absolute"
-  top = "0"
-  left = "0"
-  right = "0" > {' '} < Image
-  src = "/icons/icon-192x192.png"
-  alt = "Company Logo"
-  maxW = "65px"
-  height = "auto"
-  cursor = "pointer"
-  onClick =
-  {
-    handleLogoClick
-  } />
+      align="center"
+      justify="space-between"
+      bg="purple.900"
+      p={3}
+      color="white"
+      position="absolute"
+      top="0"
+      left="0"
+      right="0"
+    >
+      {" "}
+      <Image
+        src="/icons/icon-192x192.png"
+        alt="Company Logo"
+        maxW="65px"
+        height="auto"
+        cursor="pointer"
+        onClick={handleLogoClick}
+      />
       <Stack direction="row" spacing={4} align="center">
         <Button
           colorScheme="purple"
           bg="purple.300"
-          _hover={{bg: 'purple.400'}}
+          _hover={{ bg: "purple.400" }}
           width="100px"
           onClick={handleSignInClick}
         >
           Sign In
-        </Button >
-      < Button
-  colorScheme = "purple"
-  bg = "purple.300"
-  _hover = {
-    { bg: 'purple.400' }
-  } width = "100px"
+        </Button>
+        <Button
+          colorScheme="purple"
+          bg="purple.300"
+          _hover={{ bg: "purple.400" }}
+          width="100px"
           onClick={handleSignUpClick}
         >
           Sign Up
@@ -63,7 +63,7 @@ const Navbar =
         <Box pr={2}>{userButton}</Box>
       </Stack>
     </Flex>
-  )
-    }
+  );
+};
 
-export default Navbar
+export default Navbar;
