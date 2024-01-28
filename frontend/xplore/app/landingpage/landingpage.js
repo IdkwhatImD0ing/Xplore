@@ -13,7 +13,7 @@ import {
 const LandingPage = ({userButton}) => {
   const currentYear = new Date().getFullYear()
   return (
-    <Container maxW="100%" p={0}>
+    <Container maxW="100%" backgroundColor={'black'} p={0}>
       <Flex direction="column">
         {/* Header with Sign In button */}
         <Flex
@@ -27,18 +27,16 @@ const LandingPage = ({userButton}) => {
           <Image
             src="/icons/icon-192x192.png"
             alt="Company Logo"
-            maxW="80px"
+            maxW="75px"
             height="auto"
-            mb="4"
           />
-          <Flex justify="space-between">
+          <Flex justify="space-between" alignItems={"center"}>
           <Spacer />
           <Button
             colorScheme="purple"
             bg="purple.300"
             mr={2}
             _hover={{bg: 'purple.400'}}
-            
           >
             Sign In
           </Button>
@@ -47,7 +45,6 @@ const LandingPage = ({userButton}) => {
             bg="purple.300"
             mr={2}
             _hover={{bg: 'purple.400'}}
-            
           >
             Sign Up
           </Button>
@@ -66,11 +63,15 @@ const LandingPage = ({userButton}) => {
           p={4}
           minHeight="100vh"
         >
-          <Box maxWidth="90%" w="full" mx="auto">
-            <Heading as="h1" size="4xl" mb="4" color="purple.500">
-              Plan. Discover. Xplore.
-            </Heading>
-            <Text fontSize="md" mb="10" color="gray.600">
+          <Box maxWidth="90%" w="full" mx="auto"> 
+          <Heading as="h1" size="4xl" mb="4" color="purple.500">
+  Plan. Discover. {' '}
+  <Text as="span" color="purple.200">
+    Xplore.
+  </Text>
+</Heading>
+
+            <Text fontSize="md" mb="10" color="gray.400">
               {' '}
               {/* Increased bottom margin */}
               The best travel companion ever!
@@ -89,30 +90,26 @@ const LandingPage = ({userButton}) => {
 
         {/* Additional Content */}
         <Flex direction="column" p={4}>
-          <Box maxWidth="1200px" mx="auto" p={4}>
-            <Flex justify="space-between" mb={6}>
-              <Box width="30%" bg="gray.100" p={4} borderRadius="md">
-                <Text fontSize="lg">Feature One</Text>
-                <Text fontSize="md">Blah</Text>
-              </Box>
-              <Box width="30%" bg="gray.100" p={4} borderRadius="md">
-                <Text fontSize="lg">Feature Two</Text>
-                <Text fontSize="md">Blah</Text>
-              </Box>
-              <Box width="30%" bg="gray.100" p={4} borderRadius="md">
-                <Text fontSize="lg">Feature Three</Text>
-                <Text fontSize="md">Blah</Text>
-              </Box>
-            </Flex>
-          </Box>
-
-          <Text mt="4" fontSize="md" textAlign="center">
-            Ad astra abyssosque! Welcome to the Adventurers`&apos;` Guild.
-          </Text>
+          <Box height={"92vh"} alignItems={"center"}>
+    <Flex width = "100%" height="100vh" alignItems={'center'} justifyContent="center" mb={6}>
+      <Box width="100%" bg="purple.200" p={4} borderRadius="md" mr={4}> {/* Width 100% */}
+        <Text fontSize="lg">Feature One</Text>
+        <Text fontSize="md">Blah</Text>
+      </Box>
+      <Box width="100%" bg="purple.200" p={4} borderRadius="md" mr={4}> {/* Width 100% */}
+        <Text fontSize="lg">Feature Two</Text>
+        <Text fontSize="md">Blah</Text>
+      </Box>
+      <Box width="100%" bg="purple.200" p={4} borderRadius="md"> {/* Width 100% */}
+        <Text fontSize="lg">Feature Three</Text>
+        <Text fontSize="md">Blah</Text>
+      </Box>
+    </Flex>
+    </Box>
         </Flex>
 
         {/* Footer */}
-        <Box as="footer" bg="purple.100" py={4} textAlign="center">
+        <Box as="footer" bg="purple.100" py={2} textAlign="center">
           <Text fontSize="sm" color="gray.600">
             Powered by Yelp API, Google Cloud API, OpenAI API
           </Text>
