@@ -20,7 +20,7 @@ export default function Home() {
         {" "}
         Where are you going ?{" "}
       </Heading>
-      <div className={styles.form}>
+      <div>
         <CityInput />
         <CityList />
         <AttractionTypeInput />
