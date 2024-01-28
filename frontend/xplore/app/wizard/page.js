@@ -1,5 +1,5 @@
 'use client'
-import {useState} from 'react'
+import{useState} from 'react'
 import Cities from './cities'
 import Attractions from './Attractions'
 import MapPage from './MapPage'

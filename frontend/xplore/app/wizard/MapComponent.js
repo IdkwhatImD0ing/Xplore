@@ -1,10 +1,10 @@
 // components/MapComponent.js
-import React, {useEffect, useRef, useState} from 'react'
 import {
-  GoogleMap,
   DirectionsRenderer,
+  GoogleMap,
   useJsApiLoader,
 } from '@react-google-maps/api'
+import React, {useEffect, useRef, useState} from 'react'
 
 const MapComponent = ({currentDay}) => {
   const {isLoaded} = useJsApiLoader({
