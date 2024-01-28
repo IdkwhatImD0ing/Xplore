@@ -10,7 +10,7 @@ import {
   Spacer,
 } from '@chakra-ui/react'
 
-const LandingPage = () => {
+const LandingPage = ({userButton}) => {
   const currentYear = new Date().getFullYear()
   return (
     <Container maxW="100%" p={0}>
@@ -31,13 +31,30 @@ const LandingPage = () => {
             height="auto"
             mb="4"
           />
+          <Flex justify="space-between">
+          <Spacer />
           <Button
             colorScheme="purple"
             bg="purple.300"
+            mr={2}
             _hover={{bg: 'purple.400'}}
+            
           >
             Sign In
           </Button>
+          <Button
+            colorScheme="purple"
+            bg="purple.300"
+            mr={2}
+            _hover={{bg: 'purple.400'}}
+            
+          >
+            Sign Up
+          </Button>
+
+          {userButton} {/* Render the UserButton component here */}
+
+          </Flex>
         </Flex>
 
         {/* Main Content */}
@@ -56,7 +73,7 @@ const LandingPage = () => {
             <Text fontSize="md" mb="10" color="gray.600">
               {' '}
               {/* Increased bottom margin */}
-              Subtitle text goes here. Briefly describe what your app does.
+              The best travel companion ever!
             </Text>
 
             <Button
@@ -90,15 +107,14 @@ const LandingPage = () => {
           </Box>
 
           <Text mt="4" fontSize="md" textAlign="center">
-            Discover more about what makes our app unique. Explore features,
-            read testimonials, and see why users love it.
+            Ad astra abyssosque! Welcome to the Adventurers' Guild.
           </Text>
         </Flex>
 
         {/* Footer */}
         <Box as="footer" bg="purple.100" py={4} textAlign="center">
           <Text fontSize="sm" color="gray.600">
-            Powered by hahahahahahaha who
+            Powered by Yelp API, Google Cloud API, OpenAI API
           </Text>
           {/* Additional footer content (if any) */}
         </Box>

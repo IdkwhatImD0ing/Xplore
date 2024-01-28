@@ -5,8 +5,7 @@ import LandingPage from './components/landingpage'
 function App() {
   return (
     <>
-      <UserButton />
-      <LandingPage />
+      <LandingPage userButton={<UserButton />}/>
     </>
   )
 }
