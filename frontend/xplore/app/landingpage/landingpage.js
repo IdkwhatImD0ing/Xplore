@@ -1,20 +1,13 @@
-'use client';
-import { useRouter } from 'next/navigation';
-import {
-  Box,
-  Button,
-  Container,
-  Flex,
-  Heading,
-  Text,
-} from "@chakra-ui/react";
+"use client";
+import { useRouter } from "next/navigation";
+import { Box, Button, Container, Flex, Heading, Text } from "@chakra-ui/react";
 import React from "react";
 
 const LandingPage = ({ userButton }) => {
   const router = useRouter(); // Create an instance of the router
 
   const handleGetStartedClick = () => {
-    router.push('/wizard'); // Redirect to the '/wizard' route
+    router.push("/wizard"); // Redirect to the '/wizard' route
   };
   return (
     <Container
@@ -55,7 +48,7 @@ const LandingPage = ({ userButton }) => {
               </Box>
             </Heading>
 
-            <Text fontSize="lg" size = "2xl" mb="6" color="gray.500">
+            <Text fontSize="lg" size="2xl" mb="6" color="gray.500">
               The best travel companion ever!
             </Text>
             <Button
