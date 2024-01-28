@@ -24,7 +24,7 @@ const Navbar = ({ userButton }) => {
       as="header"
       align="center"
       justify="space-between"
-      bg="purple.500"
+      bg="purple.900"
       p={3}
       color="white"
     >

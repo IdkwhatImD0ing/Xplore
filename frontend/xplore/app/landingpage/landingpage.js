@@ -13,9 +13,20 @@ import React from "react";
 const LandingPage = ({ userButton }) => {
   const currentYear = new Date().getFullYear();
   return (
-    <Container maxW="100%" backgroundColor={"black"} p={0}>
-      <Flex direction="column">
-        {/* Main Content */}{" "}
+    <Container
+      maxW="100%"
+      p={0}
+      bgImage="url('/bg1.png')" // Set the background image using the correct path
+      bgPosition="center 10%" // Center the background image
+      bgRepeat="no-repeat" // Do not repeat the background image
+      bgSize="cover"
+    >
+      <Flex
+        direction="column"
+        height="100vh"
+        justifyContent="flex-start"
+        pt="20vh"
+      >
         <Flex
           direction="column"
           justify="center"
@@ -23,12 +34,21 @@ const LandingPage = ({ userButton }) => {
           textAlign="center"
           p={4}
         >
-          <Box maxWidth="90%" w="full" mx="auto">
-            <Heading as="h1" size="4xl" mb="4" color="purple.500">
-              Plan .Discover.{" "}
-              <Text as="span" color="purple.200">
-                Xplore .
-              </Text>
+          {/* Rounded rectangular box */}
+          <Box
+            maxWidth="52%"
+            w="full"
+            mx="auto"
+            p={12} // Padding inside the box
+            bg="whiteAlpha.800" // Light color background with some transparency
+            borderRadius="64px" // Rounded corners
+            boxShadow="lg" // Optional shadow for depth
+          >
+            <Heading as="h1" size="3xl" mb="4" color="purple.900">
+              Plan. Discover.{" "}
+              <Box as="span" color="purple.500">
+                Xplore.
+              </Box>
             </Heading>
 
             <Text fontSize="md" mb="10" color="gray.400">
@@ -37,58 +57,75 @@ const LandingPage = ({ userButton }) => {
             </Text>
             <Button
               colorScheme="purple"
-              size="lg"
-              mb={6}
+              size="xl"
+              fontSize="2xl"
+              px={8}
+              py={6}
+              mb={4}
               _hover={{ bg: "purple.600" }}
             >
               Get Started
             </Button>
           </Box>
         </Flex>
-        {/* Additional Content */}
-        <Flex direction="column" p={4}>
-          <Box height={"92vh"} alignItems={"center"}>
-            <Flex
-              width="100%"
-              height="100vh"
-              alignItems={"center"}
-              justifyContent="center"
-              mb={6}
-            >
-              <Box width="100%" bg="purple.200" p={4} borderRadius="md" mr={4}>
-                {" "}
-                {/* Width 100% */}
-                <Text fontSize="lg">Feature One</Text>
-                <Text fontSize="md">Blah</Text>
+      </Flex>
+      <Flex direction="column" p={4}>
+        <Box height={"92vh"} alignItems={"center"}>
+          <Flex
+            width="100%"
+            alignItems="stretch" // Ensure child components stretch to fill the container
+            justifyContent="center"
+            mb={6}
+            wrap="wrap" // Enable wrapping for responsiveness
+            gap={6} // Add space between cards
+          >
+            {[
+              "Discover Hidden Treasures",
+              "Plan Itineraries Effortless",
+              "Navigate Seamlessly Real-Time",
+            ].map((title, index) => (
+              <Box
+                key={index}
+                flex="1" // Flex-grow to make all boxes the same width
+                minW="300px" // Minimum width for responsiveness
+                bg="whiteAlpha.800"
+                p={8} // Increased padding
+                borderRadius="lg" // Larger border radius
+                boxShadow="xl" // Add shadow for depth
+                d="flex"
+                flexDirection="column" // Stack children vertically
+                justifyContent="space-between" // Space out the content
+                height="100%" // Make boxes fill the flex container
+              >
+                <Heading
+                  fontSize="4xl"
+                  mb={6}
+                  textAlign="center"
+                  fontWeight="bold"
+                  color="purple.900"
+                >
+                  {title}
+                </Heading>
+                <Text fontSize="xl" mb={4} color="purple.900">
+                  {index === 0 &&
+                    "Xplore revolutionizes travel by guiding you to hidden gems and local favorites. Experience unique destinations like never before with personalized recommendations tailored to your interests and travel style."}
+                  {index === 1 &&
+                    "Say goodbye to travel planning headaches! Xplore's intuitive interface simplifies itinerary creation, allowing you to seamlessly plan your journey, from accommodations to activities, all in one convenient app."}
+                  {index === 2 &&
+                    "Stay informed and navigate effortlessly with Xplore's real-time GPS and location-based insights. Whether you're seeking the best nearby dining spots or looking for the shortest route to your next adventure, Xplore has you covered."}
+                </Text>
               </Box>
-              <Box width="100%" bg="purple.200" p={4} borderRadius="md" mr={4}>
-                {" "}
-                {/* Width 100% */}
-                <Text fontSize="lg">Feature Two</Text>
-                <Text fontSize="md">Blah</Text>
-              </Box>
-              <Box width="100%" bg="purple.200" p={4} borderRadius="md">
-                {" "}
-                {/* Width 100% */}
-                <Text fontSize="lg">Feature Three</Text>
-                <Text fontSize="md">Blah</Text>
-              </Box>
-            </Flex>
-          </Box>
-        </Flex>
-        {/* Footer */}
-        <Box as="footer" bg="purple.100" py={2} textAlign="center">
-          <Text fontSize="sm" color="gray.600">
-            Powered by Yelp API, Google Cloud API, OpenAI API
-          </Text>
-          {/* Additional footer content (if any) */}
+            ))}
+          </Flex>
         </Box>
       </Flex>
+      <Box as="footer" bg="purple.900" py={2} textAlign="center">
+        <Text fontSize="sm" color="gray.200">
+          Powered by Yelp API, Google Cloud API, OpenAI API
+        </Text>
+      </Box>
     </Container>
   );
 };
-  );
-};
 
-export default LandingPage;
 export default LandingPage;
