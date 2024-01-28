@@ -26,6 +26,9 @@ export default function Wizard() {
   const {user} = useUser()
 
   useEffect(() => {
+    if (!user) {
+      return
+    }
     const fetchRouteData = async () => {
       if (routeName) {
         const userDocRef = doc(firestore, 'users', user.id)
@@ -45,7 +48,7 @@ export default function Wizard() {
     }
 
     fetchRouteData().catch(console.error)
-  }, [routeName, firestore, user.id])
+  }, [routeName, firestore, user])
 
   const citiesSubmit = () => {
     // Need to just get the name of cities into a list

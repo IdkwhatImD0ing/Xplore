@@ -1,9 +1,9 @@
-import { Box, Flex, Spinner, Text } from "@chakra-ui/react";
+import {Box, Flex, Spinner, Text} from '@chakra-ui/react'
 
 const LoadingPage = () => {
   return (
     <Flex
-      width="100vw"
+      width="100%"
       height="100vh"
       alignItems="center"
       justifyContent="center"
@@ -22,7 +22,7 @@ const LoadingPage = () => {
         </Text>
       </Box>
     </Flex>
-  );
-};
+  )
+}
 
-export default LoadingPage;
+export default LoadingPage
