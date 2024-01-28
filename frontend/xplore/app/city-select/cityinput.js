@@ -1,16 +1,20 @@
-import { Input, InputGroup, Flex, Spacer, Box } from "@chakra-ui/react";
 import {
-    FormControl,
-    FormLabel,
-    NumberInput,
-    NumberInputField,
-    NumberInputStepper,
-    NumberIncrementStepper,
-    NumberDecrementStepper,
-    Button,
-    Heading,
-    Center
-} from '@chakra-ui/react';
+  Box,
+  Button,
+  Center,
+  Flex,
+  FormControl,
+  FormLabel,
+  Heading,
+  Input,
+  InputGroup,
+  NumberDecrementStepper,
+  NumberIncrementStepper,
+  NumberInput,
+  NumberInputField,
+  NumberInputStepper,
+  Spacer
+} from "@chakra-ui/react";
 
 const CityInput = () => {
     return (

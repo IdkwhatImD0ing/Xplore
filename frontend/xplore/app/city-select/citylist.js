@@ -1,20 +1,20 @@
+import {ChevronDownIcon, ChevronUpIcon} from '@chakra-ui/icons';
 import {
-    Box,
-    List,
-    ListItem,
-    Editable,
-    EditableInput,
-    EditablePreview,
-    HStack,
-    VStack,
-    IconButton,
-    Text,
-    Center,
-    useBreakpointValue,
-  } from '@chakra-ui/react';
-  import { ChevronUpIcon, ChevronDownIcon } from '@chakra-ui/icons';
-  
-  const CityList = () => {
+  Box,
+  Center,
+  Editable,
+  EditableInput,
+  EditablePreview,
+  HStack,
+  IconButton,
+  List,
+  ListItem,
+  Text,
+  useBreakpointValue,
+  VStack,
+} from '@chakra-ui/react';
+
+const CityList = () => {
     let cities = [
       { city: 'New York', days: 3 },
       { city: 'Paris', days: 5 },
