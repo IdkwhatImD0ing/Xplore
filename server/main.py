@@ -7,7 +7,7 @@ import random
 from dotenv import load_dotenv
 
 from ga import create_graph_with_manhattan_distances, run_genetic_algorithm
-
+from attractions import attractions_wrapper
 
 load_dotenv()
 
@@ -73,4 +73,3 @@ def generate_route(data: GeneticAlgorithmInput):
         all_variations.append(all_routes)  # Add the routes for this variation to the list of all variations
 
     return all_variations
-
