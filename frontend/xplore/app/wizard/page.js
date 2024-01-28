@@ -47,7 +47,7 @@ export default function Wizard() {
   const citiesSubmit = () => {
     // Need to just get the name of cities into a list
     const cityNames = cities.map((city) => city.name)
-    fetch('http://localhost:8000/attractions/', {
+    fetch('https://api.art3m1s.me/xplore/attractions', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -61,7 +61,7 @@ export default function Wizard() {
       .then((data) => {
         console.log(data)
         setAttractions(data)
-        return fetch('http://localhost:8000/geocode-multiple/', {
+        return fetch('https://api.art3m1s.me/xplore/geocode-multiple', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -113,7 +113,7 @@ export default function Wizard() {
     }
 
     // Make the POST request to the /generate-route/ endpoint
-    fetch('http://localhost:8000/generate-route/', {
+    fetch('https://api.art3m1s.me/xplore/generate-route', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
