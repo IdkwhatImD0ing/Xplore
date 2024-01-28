@@ -11,7 +11,7 @@ As your ultimate travel companion, Xplore primarily focuses on three key functio
 ## How we built it
 #### User-Centered Design 
 Xplore features a design specifically crafted for active and traveling users, focusing on their on-the-go needs.
-- Support for both desktop and mobile devices
+- Support for both desktop and mobile devices.
 - Authentication system to save routes for quick access.
 ## Challenges we ran into
 - Integrating and configuring Melissa API for desired functionalities.
@@ -24,7 +24,7 @@ Xplore features a design specifically crafted for active and traveling users, fo
 ## Accomplishments that we're proud of
 - 
 ## What we learned
-- That the word 'itinerary' can be difficult for some people to pronounce.
+- 'Itinerary' is not only a key part of travel planning, but also a surprisingly tricky word for some to pronounce.
 
 ## What's next for Xplore
 - Real-time weather updates for the selected destinations.
