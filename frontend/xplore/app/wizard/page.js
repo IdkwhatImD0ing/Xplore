@@ -51,7 +51,8 @@ export default function Wizard() {
   };
 
   const submitAttractions = () => {
-    // Ensure citiesObjects has at least 2 elements for start and end attractions
+    // Ensure citiesObjects has at least 2 elements for start and end
+    // attractions
     if (citiesObjects.length < 2) {
       console.error("Not enough cities to generate start and end attractions.");
       return;
@@ -100,7 +101,8 @@ export default function Wizard() {
           dayRoutes.map((route) =>
             route.map((placeName) => {
               const placeObject = places.find((p) => p.name === placeName);
-              return placeObject || placeName; // If a place is not found, keep the original name
+              return placeObject || placeName; // If a place is not found,
+              // keep the original name
             }),
           ),
         );

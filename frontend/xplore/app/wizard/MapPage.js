@@ -10,7 +10,8 @@ const MapPage = ({ routePlans }) => {
   const [expandedDayIndex, setExpandedDayIndex] = useState(0); // State to keep track of the expanded day
 
   const currentRoute = routePlans[currentRouteIndex];
-  const currentDay = currentRoute[expandedDayIndex]; // currentDay is an array of points of interest
+  const currentDay = currentRoute[expandedDayIndex]; // currentDay is an array
+  // of points of interest
   // [{name: 'attraction', lat: 0, lon: 0}, ...]
 
   const nextRoute = () => {
