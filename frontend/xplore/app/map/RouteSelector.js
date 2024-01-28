@@ -10,11 +10,11 @@ const RouteSelector = ({
 }) => {
   return (
     <Flex justifyContent="center" alignItems="center" my={4}>
-      <Button onClick={prevRoute}>& larr;</Button>
-      <Text mx={8} fontWeight="bold">
+      <Button onClick={prevRoute}>&larr; Prev.</Button>
+      <Text mx={8} fontWeight="bold" textAlign="center">
         Route {currentRouteIndex + 1} of {totalRoutes}
       </Text>
-      <Button onClick={nextRoute}>& rarr;</Button>
+      <Button onClick={nextRoute}>Next &rarr;</Button>
     </Flex>
   );
 };
