@@ -1,16 +1,17 @@
-"use client";
-
+import {
+  Box,
+  Button,
+  Container,
+  Flex,
+  Heading,
+  Image,
+  Spacer,
+  Text,
+} from "@chakra-ui/react";
 import React from "react";
-import { useRouter } from "next/navigation"; // Correct the import for useRouter
-import { Box, Heading, Text, Button, Container, Flex } from "@chakra-ui/react";
 
-const LandingPage = () => {
-  const router = useRouter(); // Create an instance of the router
-
-  const handleGetStartedClick = () => {
-    router.push("/city-select");
-  };
-
+const LandingPage = ({ userButton }) => {
+  const currentYear = new Date().getFullYear();
   return (
     <Container
       maxW="100%"
@@ -44,10 +45,10 @@ const LandingPage = () => {
                 Xplore.
               </Box>
             </Heading>
-            <Text fontSize="xl" mb="6" color="gray.600">
+
+            <Text fontSize="md" mb="10" color="gray.400">
               {" "}
-              {/* Reduced bottom margin */}
-              The best travel companion ever!
+              {/* Increased bottom margin */} The best travel companion ever!
             </Text>
             <Button
               colorScheme="purple"
@@ -57,7 +58,6 @@ const LandingPage = () => {
               py={6}
               mb={4}
               _hover={{ bg: "purple.600" }}
-              onClick={handleGetStartedClick}
             >
               Get Started
             </Button>
