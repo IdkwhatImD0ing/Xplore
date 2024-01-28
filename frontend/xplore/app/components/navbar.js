@@ -3,9 +3,9 @@
 import React from "react";
 import { useRouter } from "next/navigation";
 import { Button, Image, Flex, Stack, Box } from "@chakra-ui/react";
-import { SignedOut, SignedIn } from "@clerk/nextjs";
+import { SignedOut, SignedIn, userButton } from "@clerk/nextjs";
 
-const Navbar = () => {
+const Navbar = ({userButton}) => {
   const router = useRouter();
 
   const handleSignInClick = () => {
@@ -85,6 +85,7 @@ const Navbar = () => {
           >
             My Routes
           </Button>
+          <Box pr={2}>{userButton}</Box>
         </SignedIn>
       </Stack>
     </Flex>
