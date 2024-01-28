@@ -2,15 +2,14 @@ import random
 
 
 def create_graph_with_manhattan_distances(places):
-    """
-    Create a graph where nodes are attractions with provided latitudes and longitudes,
+    """Create a graph where nodes are attractions with provided latitudes and longitudes,
     and edges are the Manhattan distances between these attractions.
 
-    Args:
-        places (list of dicts): Each dict contains 'name', 'lat', and 'long' keys for an attraction.
+    :param places: Each dict contains 'name', 'lat', and 'long' keys for an attraction.
+    :type places: list of dicts
+    :returns: Graph representing attractions and Manhattan distances between them.
+    :rtype: dict
 
-    Returns:
-        dict: Graph representing attractions and Manhattan distances between them.
     """
     graph = {}
 
@@ -42,19 +41,27 @@ def run_genetic_algorithm(
 ):
     """Runs the genetic algorithm for itinerary planning.
 
-    Args:
-        graph (dict): The graph representing attractions and distances between them.
-        initial_pop_size (int): The size of the initial population.
-        start_attraction (str): The starting attraction.
-        end_attraction (str): The ending attraction.
-        final_path_size (int): The length of each path in the population.
-        generations (int): The number of generations to run the algorithm.
-        initial_mutation_rate (float): The initial mutation rate.
-        minimum_mutation_rate (float): The minimum mutation rate.
+    :param graph: The graph representing attractions and distances between them.
+    :type graph: dict
+    :param initial_pop_size: The size of the initial population.
+    :type initial_pop_size: int
+    :param start_attraction: The starting attraction.
+    :type start_attraction: str
+    :param end_attraction: The ending attraction.
+    :type end_attraction: str
+    :param final_path_size: The length of each path in the population.
+    :type final_path_size: int
+    :param generations: The number of generations to run the algorithm.
+    :type generations: int
+    :param initial_mutation_rate: The initial mutation rate.
+    :type initial_mutation_rate: float
+    :param minimum_mutation_rate: The minimum mutation rate.
+    :type minimum_mutation_rate: float
+    :param all_start_end_points: 
+    :param debug:  (Default value = False)
+    :returns: bestPath-> The best path found by the genetic algorithm.
+    :rtype: list
 
-    Returns:
-        bestPath (list): The best path found by the genetic algorithm.
-        bestFitness (float): The fitness of the best path.
     """
     bestPath = []
     bestFitness = float("inf")
@@ -125,12 +132,13 @@ def run_genetic_algorithm(
 def calculate_path_distance(graph, path):
     """Calculates the total distance of a path based on the graph distances.
 
-    Args:
-        graph (dict): A dictionary representing the graph of attractions.
-        path (list): A list of attractions representing the path.
+    :param graph: A dictionary representing the graph of attractions.
+    :type graph: dict
+    :param path: A list of attractions representing the path.
+    :type path: list
+    :returns: total_distance-> The total distance of the given path.
+    :rtype: float
 
-    Returns:
-        total_distance (float): The total distance of the given path.
     """
     total_distance = 0
     for i in range(len(path) - 1):
@@ -144,13 +152,15 @@ def Mutate(Child, graph, all_start_end_points):
     1. Reversing the order of a random subset of the child, excluding the first and last elements.
     2. Replacing an attraction with an attraction not in the path, excluding the replacement of the first and last elements.
 
-    Args:
-        Child (list): The child to be mutated.
-        graph (dict): A dictionary representing the graph of attractions.
-        all_start_end_points (list): List of all start and end attractions for each day
+    :param Child: The child to be mutated.
+    :type Child: list
+    :param graph: A dictionary representing the graph of attractions.
+    :type graph: dict
+    :param all_start_end_points: List of all start and end attractions for each day
+    :type all_start_end_points: list
+    :returns: Child-> The mutated child.
+    :rtype: list
 
-    Returns:
-        Child (list): The mutated child.
     """
     mutation_type = random.choice(["reverse", "replace"])
 
@@ -186,15 +196,19 @@ def Mutate(Child, graph, all_start_end_points):
 def Crossover(Parent1, Parent2, Start_Index, End_Index, all_start_end_points):
     """Performs crossover between two parents and returns the child
 
-    Args:
-        Parent1 (list): The first parent (path of attractions)
-        Parent2 (list): The second parent (path of attractions)
-        Start_Index (int): The start index of the crossover section
-        End_Index (int): The end index of the crossover section
-        all_start_end_points (list): List of all start and end attractions for each day
+    :param Parent1: The first parent (path of attractions)
+    :type Parent1: list
+    :param Parent2: The second parent (path of attractions)
+    :type Parent2: list
+    :param Start_Index: The start index of the crossover section
+    :type Start_Index: int
+    :param End_Index: The end index of the crossover section
+    :type End_Index: int
+    :param all_start_end_points: List of all start and end attractions for each day
+    :type all_start_end_points: list
+    :returns: child-> The child generated after crossover
+    :rtype: list
 
-    Returns:
-        child (list): The child generated after crossover
     """
     child = []
 
@@ -239,31 +253,34 @@ def Crossover(Parent1, Parent2, Start_Index, End_Index, all_start_end_points):
 def calculate_distance_attraction(graph, attraction1, attraction2):
     """Calculates the distance between two attractions based on a graph
 
-    Args:
-        graph (dict): A dictionary representing the graph of attractions.
-        attraction1 (str): The name of the first attraction.
-        attraction2 (str): The name of the second attraction.
+    :param graph: A dictionary representing the graph of attractions.
+    :type graph: dict
+    :param attraction1: The name of the first attraction.
+    :type attraction1: str
+    :param attraction2: The name of the second attraction.
+    :type attraction2: str
+    :returns: distance-> The distance between the two attractions. Returns float('inf') if there is no direct path.
+    :rtype: float
 
-    Returns:
-        distance (float): The distance between the two attractions. Returns float('inf') if there is no direct path.
     """
     # Return the distance from the graph if it exists, otherwise return infinity
     return graph.get(attraction1, {}).get(attraction2, float("inf"))
 
 
 def CreateMatingPool(population, RankList, tournament_size=3):
-    """
-    Implements tournament selection for a genetic algorithm's parent selection.
+    """Implements tournament selection for a genetic algorithm's parent selection.
     In each tournament, a subset of individuals is chosen at random, and the one with the best fitness
     (highest rank) is selected for the mating pool.
 
-    Args:
-        population (list): A list of paths (each path is a list of attractions) from which the mating pool is to be created.
-        RankList (list): A list of tuples (index, fitness score) sorted in ascending order of fitness (lower is better).
-        tournament_size (int): The number of individuals to be selected for each tournament. Default is 3.
+    :param population: A list of paths (each path is a list of attractions) from which the mating pool is to be created.
+    :type population: list
+    :param RankList: A list of tuples (index, fitness score) sorted in ascending order of fitness (lower is better).
+    :type RankList: list
+    :param tournament_size: The number of individuals to be selected for each tournament. Default is 3.
+    :type tournament_size: int
+    :returns: mating_pool-> A list of paths selected from the population to form the mating pool.
+    :rtype: list
 
-    Returns:
-        mating_pool (list): A list of paths selected from the population to form the mating pool.
     """
 
     matingPool = []
@@ -284,16 +301,21 @@ def CreateInitialPopulation(
 ):
     """Generates the initial population for the genetic algorithm
 
-    Args:
-        size (int): The size of the list (initial_population) to be returned.
-        graph (dict): A dictionary representing the graph of attractions.
-        start_attraction (str): The starting attraction.
-        end_attraction (str): The ending attraction.
-        final_path_size (int): The length of each path in the population.
-        all_start_end_points (list): List of all start and end attractions for each day.
+    :param size: The size of the list (initial_population) to be returned.
+    :type size: int
+    :param graph: A dictionary representing the graph of attractions.
+    :type graph: dict
+    :param start_attraction: The starting attraction.
+    :type start_attraction: str
+    :param end_attraction: The ending attraction.
+    :type end_attraction: str
+    :param final_path_size: The length of each path in the population.
+    :type final_path_size: int
+    :param all_start_end_points: List of all start and end attractions for each day.
+    :type all_start_end_points: list
+    :returns: initial_population-> A list of paths (a permutation of attractions) of size = size.
+    :rtype: list
 
-    Returns:
-        initial_population (list): A list of paths (a permutation of attractions) of size = size.
     """
     initial_population = []
     attractions = list(graph.keys())
