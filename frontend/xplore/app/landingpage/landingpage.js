@@ -1,4 +1,7 @@
+'use client';
+
 import React from "react";
+import { useRouter } from 'next/navigation'; // Import the useRouter hook
 import {
   Box,
   Heading,
@@ -9,11 +12,15 @@ import {
 } from "@chakra-ui/react";
 
 const LandingPage = () => {
+  const router = useRouter(); // Create an instance of the router
+
+  const handleGetStartedClick = () => {
+    router.push('/city-select');
+  };
+
   return (
     <Container maxW="100%" p={0}>
       <Flex direction="column">
-        {/* Header with Sign In button */}
-        {/* Main Content */}
         <Flex
           direction="column"
           justify="center"
@@ -27,8 +34,6 @@ const LandingPage = () => {
               Plan. Discover. Xplore.
             </Heading>
             <Text fontSize="md" mb="10" color="gray.600">
-              {" "}
-              {/* Increased bottom margin */}
               The best travel companion ever!
             </Text>
 
@@ -37,43 +42,12 @@ const LandingPage = () => {
               size="lg"
               mb={6}
               _hover={{ bg: "purple.600" }}
+              onClick={handleGetStartedClick} // Attach the onClick event
             >
               Get Started
             </Button>
           </Box>
         </Flex>
-
-        {/* Additional Content */}
-        <Flex direction="column" p={4}>
-          <Box maxWidth="1200px" mx="auto" p={4}>
-            <Flex justify="space-between" mb={6}>
-              <Box width="30%" bg="gray.100" p={4} borderRadius="md">
-                <Text fontSize="lg">Feature One</Text>
-                <Text fontSize="md">Blah</Text>
-              </Box>
-              <Box width="30%" bg="gray.100" p={4} borderRadius="md">
-                <Text fontSize="lg">Feature Two</Text>
-                <Text fontSize="md">Blah</Text>
-              </Box>
-              <Box width="30%" bg="gray.100" p={4} borderRadius="md">
-                <Text fontSize="lg">Feature Three</Text>
-                <Text fontSize="md">Blah</Text>
-              </Box>
-            </Flex>
-          </Box>
-
-          <Text mt="4" fontSize="md" textAlign="center">
-            Ad astra abyssosque! Welcome to the Adventurers`&apos;` Guild.
-          </Text>
-        </Flex>
-
-        {/* Footer */}
-        <Box as="footer" bg="purple.100" py={4} textAlign="center">
-          <Text fontSize="sm" color="gray.600">
-            Powered by Yelp API, Google Cloud API, OpenAI API
-          </Text>
-          {/* Additional footer content (if any) */}
-        </Box>
       </Flex>
     </Container>
   );
