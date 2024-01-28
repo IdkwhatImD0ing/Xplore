@@ -10,7 +10,7 @@ import {
 } from "@chakra-ui/react";
 import React from "react";
 
-const LandingPage = ({userButton}) => {
+const LandingPage = ({ userButton }) => {
   const currentYear = new Date().getFullYear();
   return (
     <Container maxW="100%" backgroundColor={"black"} p={0}>
@@ -18,22 +18,29 @@ const LandingPage = ({userButton}) => {
         {/* Header with Sign In button */}
         <Flex
           as="header"
-  align = "center"
-  justify = "space-between"
-  bg = "purple.500"
-  p = {3} color = "white" > {" "} < Image
-  src = "/icons/icon-192x192.png"
-  alt = "Company Logo"
-  maxW = "75px"
-  height = "auto" / >
-           {" "}<Flex justify = "space-between" alignItems = {"center"}>
-           <Spacer />< Button
-  colorScheme = "purple"
-  bg = "purple.300"
-  mr = {2} _hover =
-      {{ bg: "purple.400" }} >
-      Sign In<
-          /Button>
+          align="center"
+          justify="space-between"
+          bg="purple.500"
+          p={3}
+          color="white"
+        >
+          {" "}
+          <Image
+            src="/icons/icon-192x192.png"
+            alt="Company Logo"
+            maxW="75px"
+            height="auto"
+          />{" "}
+          <Flex justify="space-between" alignItems={"center"}>
+            <Spacer />
+            <Button
+              colorScheme="purple"
+              bg="purple.300"
+              mr={2}
+              _hover={{ bg: "purple.400" }}
+            >
+              Sign In
+            </Button>
             <Button
               colorScheme="purple"
               bg="purple.300"
@@ -41,26 +48,31 @@ const LandingPage = ({userButton}) => {
               _hover={{ bg: "purple.400" }}
             >
               Sign Up
-            </Button>{
-          userButton} {
-          /* Render the UserButton component here */}</Flex>
-        </Flex>{
-          /* Main Content */} {" "} < Flex
-  direction = "column"
-  justify = "center"
-  align = "center"
-  textAlign = "center"
-  p = {4} minHeight =
-      "100vh" >
-      <Box maxWidth = "90%" w = "full" mx = "auto">
-      <Heading as = "h1" size = "4xl" mb = "4" color = "purple.500">Plan
-          .Discover.{" "}<Text as = "span" color = "purple.200">Xplore
-          .</Text>
+            </Button>
+            {userButton} {/* Render the UserButton component here */}
+          </Flex>
+        </Flex>
+        {/* Main Content */}{" "}
+        <Flex
+          direction="column"
+          justify="center"
+          align="center"
+          textAlign="center"
+          p={4}
+          minHeight="100vh"
+        >
+          <Box maxWidth="90%" w="full" mx="auto">
+            <Heading as="h1" size="4xl" mb="4" color="purple.500">
+              Plan .Discover.{" "}
+              <Text as="span" color="purple.200">
+                Xplore .
+              </Text>
             </Heading>
 
-      <Text fontSize = "md" mb = "10" color = "gray.400">{
-          " "} { /* Increased bottom margin */ } The best travel companion ever!
-      </Text>
+            <Text fontSize="md" mb="10" color="gray.400">
+              {" "}
+              {/* Increased bottom margin */} The best travel companion ever!
+            </Text>
 
             <Button
               colorScheme="purple"
@@ -70,13 +82,16 @@ const LandingPage = ({userButton}) => {
             >
               Get Started
             </Button>
-      </Box>
-        </Flex>{
-          /* Additional Content */}<Flex direction = "column" p = {4}>
-      <Box height = {"92vh"} alignItems = {"center"}>< Flex
-  width = "100%"
-  height = "100vh"
-  alignItems = {"center"} justifyContent = "center"
+          </Box>
+        </Flex>
+        {/* Additional Content */}
+        <Flex direction="column" p={4}>
+          <Box height={"92vh"} alignItems={"center"}>
+            <Flex
+              width="100%"
+              height="100vh"
+              alignItems={"center"}
+              justifyContent="center"
               mb={6}
             >
               <Box width="100%" bg="purple.200" p={4} borderRadius="md" mr={4}>
