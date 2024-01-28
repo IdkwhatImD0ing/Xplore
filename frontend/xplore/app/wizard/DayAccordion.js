@@ -8,12 +8,16 @@ import {
   Box,
   Text,
   VStack,
-} from '@chakra-ui/react'
-import React from 'react'
+} from "@chakra-ui/react";
+import React from "react";
 
-const DayAccordion = ({route}) => {
+const DayAccordion = ({ route, expandedDayIndex, setExpandedDayIndex }) => {
   return (
-    <Accordion allowMultiple>
+    <Accordion
+      allowToggle
+      index={expandedDayIndex}
+      onChange={(index) => setExpandedDayIndex(index)}
+    >
       {route.map((dayPlan, index) => (
         <AccordionItem key={index}>
           <AccordionButton>
@@ -32,7 +36,7 @@ const DayAccordion = ({route}) => {
         </AccordionItem>
       ))}
     </Accordion>
-  )
-}
+  );
+};
 
-export default DayAccordion
+export default DayAccordion;

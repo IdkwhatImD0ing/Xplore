@@ -27,6 +27,10 @@ const Navbar = ({ userButton }) => {
       bg="purple.900"
       p={3}
       color="white"
+      position="absolute"
+      top="0"
+      left="0"
+      right="0"
     >
       {" "}
       <Image
