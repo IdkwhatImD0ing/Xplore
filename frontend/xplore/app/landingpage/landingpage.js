@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import React from "react";
 import { useRouter } from "next/navigation"; // Correct the import for useRouter
@@ -13,7 +13,9 @@ const LandingPage = () => {
 
   return (
     <Container maxW="100%" p={0}>
-      <Flex direction="column" height="100vh" justifyContent="center"> {/* Adjusted for vertical centering */}
+      <Flex direction="column" height="100vh" justifyContent="center">
+        {" "}
+        {/* Adjusted for vertical centering */}
         <Flex
           direction="column"
           justify="center"
@@ -24,9 +26,13 @@ const LandingPage = () => {
           <Box maxWidth="90%" w="full" mx="auto">
             <Heading as="h1" size="4xl" mb="4" color="purple.500">
               Plan. Discover.{" "}
-              <Box as="span" color="purple.900">Xplore.</Box>
+              <Box as="span" color="purple.900">
+                Xplore.
+              </Box>
             </Heading>
-            <Text fontSize="xl" mb="6" color="gray.600"> {/* Reduced bottom margin */}
+            <Text fontSize="xl" mb="6" color="gray.600">
+              {" "}
+              {/* Reduced bottom margin */}
               The best travel companion ever!
             </Text>
             <Button
