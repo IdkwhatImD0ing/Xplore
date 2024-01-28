@@ -11,10 +11,10 @@ import {
 } from "@chakra-ui/react";
 import React from "react";
 
-const DayAccordion = ({route, expandedDayIndex, setExpandedDayIndex}) => {
+const DayAccordion = ({ route, expandedDayIndex, setExpandedDayIndex }) => {
   return (
     <Accordion
-  allowToggle
+      allowToggle
       index={expandedDayIndex}
       onChange={(index) => setExpandedDayIndex(index)}
     >
