@@ -26,9 +26,12 @@ Xplore features a design specifically crafted for active and traveling users, fo
 - Engaging in the noble battle against sleepiness and the relentless temptation of naps.
 
 ## Accomplishments that we're proud of
-- We successfully implemented Progressive Web App (PWA) functionality.
+- (that we got this to work)
+- Successfully implemented Progressive Web App (PWA) functionality.
 
 ## What we learned
+- Those working on backend acquired an enhanced understanding of web development technologies such as GraphQL, Firebase, and Clerk.
+- Those working on frontend delved into the intricacies of Next.js and Chakra UI.
 - No two people should be working on the same Git branch at once.
 - 'Itinerary' is not only a key part of travel planning, but also a surprisingly tricky word for some to pronounce.
 
