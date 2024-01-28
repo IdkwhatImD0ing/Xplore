@@ -1,18 +1,17 @@
 import './globals.css'
 
-import {ClerkProvider} from '@clerk/nextjs'
+import {ClerkProvider, UserButton} from '@clerk/nextjs'
 import {Inter} from 'next/font/google'
 
-import Providers from './providers'
 import Navbar from './components/navbar'
-import {UserButton} from '@clerk/nextjs'
+import Providers from './providers'
 
-const inter = Inter({subsets: ['latin']})
+const inter = Inter({subsets : [ 'latin' ]})
 
 export const metadata = {
-  title: 'Xplore',
-  description: 'The best travel companion ever!',
-  manifest: '/manifest.json',
+  title : 'Xplore',
+  description : 'The best travel companion ever!',
+  manifest : '/manifest.json',
 }
 
 export default function RootLayout({children}) {
