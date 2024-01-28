@@ -15,43 +15,6 @@ const LandingPage = ({ userButton }) => {
   return (
     <Container maxW="100%" backgroundColor={"black"} p={0}>
       <Flex direction="column">
-        {/* Header with Sign In button */}
-        <Flex
-          as="header"
-          align="center"
-          justify="space-between"
-          bg="purple.500"
-          p={3}
-          color="white"
-        >
-          {" "}
-          <Image
-            src="/icons/icon-192x192.png"
-            alt="Company Logo"
-            maxW="75px"
-            height="auto"
-          />{" "}
-          <Flex justify="space-between" alignItems={"center"}>
-            <Spacer />
-            <Button
-              colorScheme="purple"
-              bg="purple.300"
-              mr={2}
-              _hover={{ bg: "purple.400" }}
-            >
-              Sign In
-            </Button>
-            <Button
-              colorScheme="purple"
-              bg="purple.300"
-              mr={2}
-              _hover={{ bg: "purple.400" }}
-            >
-              Sign Up
-            </Button>
-            {userButton} {/* Render the UserButton component here */}
-          </Flex>
-        </Flex>
         {/* Main Content */}{" "}
         <Flex
           direction="column"
