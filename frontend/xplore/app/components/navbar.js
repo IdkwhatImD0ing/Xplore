@@ -1,23 +1,23 @@
-'use client'
+"use client";
 
-import React from 'react'
-import {useRouter} from 'next/navigation'
-import {Button, Image, Flex, Stack, Box} from '@chakra-ui/react'
+import React from "react";
+import { useRouter } from "next/navigation";
+import { Button, Image, Flex, Stack, Box } from "@chakra-ui/react";
 
-const Navbar = ({userButton}) => {
-  const router = useRouter() // Create an instance of the router
+const Navbar = ({ userButton }) => {
+  const router = useRouter(); // Create an instance of the router
 
   const handleSignInClick = () => {
-    router.push('/sign-in')
-  }
+    router.push("/sign-in");
+  };
 
   const handleSignUpClick = () => {
-    router.push('/sign-up')
-  }
+    router.push("/sign-up");
+  };
 
   const handleLogoClick = () => {
-    router.push('/')
-  }
+    router.push("/");
+  };
 
   return (
     <Flex
@@ -32,7 +32,7 @@ const Navbar = ({userButton}) => {
       left="0"
       right="0"
     >
-      {' '}
+      {" "}
       <Image
         src="/icons/icon-192x192.png"
         alt="Company Logo"
@@ -45,7 +45,7 @@ const Navbar = ({userButton}) => {
         <Button
           colorScheme="purple"
           bg="purple.300"
-          _hover={{bg: 'purple.400'}}
+          _hover={{ bg: "purple.400" }}
           width="100px"
           onClick={handleSignInClick}
         >
@@ -54,7 +54,7 @@ const Navbar = ({userButton}) => {
         <Button
           colorScheme="purple"
           bg="purple.300"
-          _hover={{bg: 'purple.400'}}
+          _hover={{ bg: "purple.400" }}
           width="100px"
           onClick={handleSignUpClick}
         >
@@ -63,7 +63,7 @@ const Navbar = ({userButton}) => {
         <Box pr={2}>{userButton}</Box>
       </Stack>
     </Flex>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;
