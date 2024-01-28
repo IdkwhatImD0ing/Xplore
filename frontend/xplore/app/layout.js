@@ -5,6 +5,7 @@ import { Inter } from "next/font/google";
 
 import Navbar from "./components/navbar";
 import Providers from "./providers";
+import { Box } from "@chakra-ui/react";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,7 +22,10 @@ export default function RootLayout({ children }) {
         <body className={inter.className}>
           <Providers>
             <Navbar userButton={<UserButton />} />
-            {children}
+            <Box pt ="50px">
+              {children}
+            </Box>
+            
           </Providers>
         </body>
       </html>
