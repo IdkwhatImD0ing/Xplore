@@ -1,6 +1,14 @@
 "use client";
 import { useRouter } from "next/navigation";
-import { Box, Button, Container, Flex, Heading, Text } from "@chakra-ui/react";
+import {
+  Grid,
+  Box,
+  Button,
+  Container,
+  Flex,
+  Heading,
+  Text,
+} from "@chakra-ui/react";
 import React from "react";
 
 const LandingPage = ({ userButton }) => {
@@ -67,14 +75,14 @@ const LandingPage = ({ userButton }) => {
         </Flex>
       </Flex>
       <Flex direction="column" p={4}>
-        <Box height={"92vh"} alignItems={"center"}>
-          <Flex
+        <Box height="55vh">
+          <Grid
+            templateColumns={{ sm: "repeat(1, 1fr)", md: "repeat(3, 1fr)" }} // Responsive grid columns
+            gap={6} // Space between grid items
             width="100%"
             alignItems="stretch" // Ensure child components stretch to fill the container
             justifyContent="center"
             mb={6}
-            wrap="wrap" // Enable wrapping for responsiveness
-            gap={6} // Add space between cards
           >
             {[
               "Discover Hidden Treasures",
@@ -83,8 +91,6 @@ const LandingPage = ({ userButton }) => {
             ].map((title, index) => (
               <Box
                 key={index}
-                flex="1" // Flex-grow to make all boxes the same width
-                minW="300px" // Minimum width for responsiveness
                 bg="whiteAlpha.800"
                 p={8} // Increased padding
                 borderRadius="lg" // Larger border radius
@@ -92,7 +98,6 @@ const LandingPage = ({ userButton }) => {
                 d="flex"
                 flexDirection="column" // Stack children vertically
                 justifyContent="space-between" // Space out the content
-                height="100%" // Make boxes fill the flex container
               >
                 <Heading
                   fontSize="4xl"
@@ -113,7 +118,7 @@ const LandingPage = ({ userButton }) => {
                 </Text>
               </Box>
             ))}
-          </Flex>
+          </Grid>
         </Box>
       </Flex>
       <Box as="footer" bg="purple.900" py={2} textAlign="center">
