@@ -107,7 +107,7 @@ const LandingPage = ({userButton}) => {
           </Box>
 
           <Text mt="4" fontSize="md" textAlign="center">
-            Ad astra abyssosque! Welcome to the Adventurers' Guild.
+            Ad astra abyssosque! Welcome to the Adventurers`&apos;` Guild.
           </Text>
         </Flex>
 
