@@ -21,13 +21,13 @@ const LandingPage = () => {
           align="center"
           justify="space-between"
           bg="purple.500"
-          p={4}
+          p={3}
           color="white"
         >
           <Image
-            src="/public/icons/icon-512x512.png"
+            src="/icons/icon-192x192.png"
             alt="Company Logo"
-            maxW="80%"
+            maxW="80px"
             height="auto"
             mb="4"
           />
@@ -51,7 +51,7 @@ const LandingPage = () => {
         >
           <Box maxWidth="90%" w="full" mx="auto">
             <Heading as="h1" size="4xl" mb="4" color="purple.500">
-              Welcome to Our App
+              Plan. Discover. Xplore.
             </Heading>
             <Text fontSize="md" mb="10" color="gray.600">
               {' '}
