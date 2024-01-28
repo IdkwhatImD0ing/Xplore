@@ -4,17 +4,17 @@ import {
   FormLabel,
   Input,
   useBreakpointValue,
-} from "@chakra-ui/react";
+} from '@chakra-ui/react'
 
-const AttractionTypeInput = () => {
+const AttractionTypeInput = ({preferences, setPreferences}) => {
   // Responsive width using the useBreakpointValue hook
   const inputWidth = useBreakpointValue({
-    base: "90%",
-    sm: "80%",
-    md: "60%",
-    lg: "50%",
-    xl: "40%",
-  });
+    base: '90%',
+    sm: '80%',
+    md: '60%',
+    lg: '50%',
+    xl: '40%',
+  })
 
   return (
     <FormControl>
@@ -24,12 +24,14 @@ const AttractionTypeInput = () => {
       <Center>
         <Input
           type="text"
+          value={preferences}
+          onChange={(e) => setPreferences(e.target.value)}
           placeholder="'Nature', or 'Museum'"
           width={inputWidth}
         />
       </Center>
     </FormControl>
-  );
-};
+  )
+}
 
-export { AttractionTypeInput };
+export {AttractionTypeInput}
