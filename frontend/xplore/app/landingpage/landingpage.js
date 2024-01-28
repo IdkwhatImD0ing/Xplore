@@ -1,17 +1,14 @@
-import {
-  Box,
-  Button,
-  Container,
-  Flex,
-  Heading,
-  Image,
-  Spacer,
-  Text,
-} from "@chakra-ui/react";
+"use client";
+import { useRouter } from "next/navigation";
+import { Box, Button, Container, Flex, Heading, Text } from "@chakra-ui/react";
 import React from "react";
 
 const LandingPage = ({ userButton }) => {
-  const currentYear = new Date().getFullYear();
+  const router = useRouter(); // Create an instance of the router
+
+  const handleGetStartedClick = () => {
+    router.push("/wizard"); // Redirect to the '/wizard' route
+  };
   return (
     <Container
       maxW="100%"
@@ -51,9 +48,8 @@ const LandingPage = ({ userButton }) => {
               </Box>
             </Heading>
 
-            <Text fontSize="md" mb="10" color="gray.400">
-              {" "}
-              {/* Increased bottom margin */} The best travel companion ever!
+            <Text fontSize="lg" size="2xl" mb="6" color="gray.500">
+              The best travel companion ever!
             </Text>
             <Button
               colorScheme="purple"
@@ -63,6 +59,7 @@ const LandingPage = ({ userButton }) => {
               py={6}
               mb={4}
               _hover={{ bg: "purple.600" }}
+              onClick={handleGetStartedClick}
             >
               Get Started
             </Button>
