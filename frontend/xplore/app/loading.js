@@ -1,4 +1,4 @@
-import {Box, Flex, Spinner, Text} from '@chakra-ui/react';
+import { Box, Flex, Spinner, Text } from "@chakra-ui/react";
 
 const LoadingPage = () => {
   return (
