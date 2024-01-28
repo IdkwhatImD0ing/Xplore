@@ -1,5 +1,5 @@
 'use client';
-import { useRouter } from 'next/navigation';
+import {useRouter} from 'next/navigation';
 import {
   Box,
   Button,
@@ -10,7 +10,7 @@ import {
 } from "@chakra-ui/react";
 import React from "react";
 
-const LandingPage = ({ userButton }) => {
+const LandingPage = ({userButton}) => {
   const router = useRouter(); // Create an instance of the router
 
   const handleGetStartedClick = () => {
