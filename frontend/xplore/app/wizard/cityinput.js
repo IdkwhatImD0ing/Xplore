@@ -21,17 +21,15 @@ import {
 const CityInput = ({setCities}) => {
   const [cityName, setCityName] = useState('')
   const [stateName, setStateName] = useState('') // State for the selected state
-  const [numDays, setNumDays] = useState(1)
 
   const handleAddCity = (e) => {
     e.preventDefault() // Prevent the default form submit action
     setCities((prevCities) => [
       ...prevCities,
-      {name: cityName + ', ' + stateName, days: parseInt(numDays)}, // Include state in the object
+      {name: cityName + ', ' + stateName}, // Include state in the object
     ])
     // Reset the input fields after adding the city
     setCityName('')
-    setNumDays(1)
   }
 
   return (
@@ -112,27 +110,6 @@ const CityInput = ({setCities}) => {
                 <option value="WI">WI</option>
                 <option value="WY">WY</option>
               </Select>
-
-              <NumberInput
-                max={50}
-                min={1}
-                ml={4}
-                width="100px"
-                maxWidth="160px"
-                value={numDays}
-                onChange={(valueAsString, valueAsNumber) =>
-                  setNumDays(valueAsString)
-                }
-              >
-                <NumberInputField placeholder="# Days" />
-                <NumberInputStepper>
-                  <NumberIncrementStepper />
-                  <NumberDecrementStepper />
-                </NumberInputStepper>
-              </NumberInput>
-              <FormLabel ml={2} mb={0}>
-                Days
-              </FormLabel>
             </Flex>
             <Center pt={4}>
               <Button colorScheme="teal" type="submit" width="100%">

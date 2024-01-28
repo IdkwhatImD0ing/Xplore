@@ -10,6 +10,7 @@ import {
   VStack,
   Grid,
   Box,
+  useBreakpointValue,
 } from '@chakra-ui/react'
 import {useState} from 'react'
 
@@ -20,6 +21,15 @@ export default function Cities({
   setPreferences,
   continueFunction,
 }) {
+
+  const inputWidth = useBreakpointValue({
+    base: '90%',
+    sm: '80%',
+    md: '60%',
+    lg: '50%',
+    xl: '40%',
+  })
+
   return (
     <Flex
       direction="column" // sets the direction of children to be vertical
@@ -27,6 +37,7 @@ export default function Cities({
       justify="start" // justify content to start at the top
       minH="100vh" // minimum height to fill the screen
       w="100%" // width to fill the screen
+      pt="2rem"
     >
       <Heading
         as="h1"
@@ -59,7 +70,7 @@ export default function Cities({
           />
 
           <Center width="100%">
-            <Button colorScheme="teal" type="submit" onClick={continueFunction}>
+            <Button colorScheme="teal" type="submit" onClick={continueFunction} width={inputWidth}>
               Continue
             </Button>
           </Center>
