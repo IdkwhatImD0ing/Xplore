@@ -22,7 +22,6 @@ const LandingPage = ({ userButton }) => {
           align="center"
           textAlign="center"
           p={4}
-          minHeight="100vh"
         >
           <Box maxWidth="90%" w="full" mx="auto">
             <Heading as="h1" size="4xl" mb="4" color="purple.500">
@@ -36,7 +35,6 @@ const LandingPage = ({ userButton }) => {
               {" "}
               {/* Increased bottom margin */} The best travel companion ever!
             </Text>
-
             <Button
               colorScheme="purple"
               size="lg"
@@ -89,5 +87,8 @@ const LandingPage = ({ userButton }) => {
     </Container>
   );
 };
+  );
+};
 
+export default LandingPage;
 export default LandingPage;
