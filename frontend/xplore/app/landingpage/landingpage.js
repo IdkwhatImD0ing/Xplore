@@ -49,7 +49,44 @@ const LandingPage = () => {
             </Button>
           </Box>
         </Flex>
+
+
       </Flex>
+      <Flex direction="column" p={4}>
+          <Box height={"92vh"} alignItems={"center"}>
+            <Flex
+              width="100%"
+              height="100vh"
+              alignItems={"center"}
+              justifyContent="center"
+              mb={6}
+            >
+              <Box width="100%" bg="purple.200" p={4} borderRadius="md" mr={4}>
+                {" "}
+                {/* Width 100% */}
+                <Text fontSize="lg">Feature One</Text>
+                <Text fontSize="md">Blah</Text>
+              </Box>
+              <Box width="100%" bg="purple.200" p={4} borderRadius="md" mr={4}>
+                {" "}
+                {/* Width 100% */}
+                <Text fontSize="lg">Feature Two</Text>
+                <Text fontSize="md">Blah</Text>
+              </Box>
+              <Box width="100%" bg="purple.200" p={4} borderRadius="md">
+                {" "}
+                {/* Width 100% */}
+                <Text fontSize="lg">Feature Three</Text>
+                <Text fontSize="md">Blah</Text>
+              </Box>
+            </Flex>
+          </Box>
+        </Flex>
+        <Box as="footer" bg="purple.100" py={2} textAlign="center">
+          <Text fontSize="sm" color="gray.600">
+            Powered by Yelp API, Google Cloud API, OpenAI API
+          </Text>
+        </Box>
     </Container>
   );
 };
