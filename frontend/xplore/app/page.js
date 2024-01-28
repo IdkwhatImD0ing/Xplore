@@ -1,12 +1,11 @@
 import {UserButton} from '@clerk/nextjs'
 import React from 'react'
-import LandingPage from './components/landingpage'
+import LandingPage from './landingpage/landingpage'
 
 function App() {
   return (
     <>
-      <UserButton />
-      <LandingPage />
+      <LandingPage userButton={<UserButton />}/>
     </>
   )
 }

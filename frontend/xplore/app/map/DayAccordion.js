@@ -17,8 +17,8 @@ const DayAccordion = ({ route }) => {
       {route.map((dayPlan, index) => (
         <AccordionItem key={index}>
           <AccordionButton>
-            <Box flex="1" textAlign="left">
-              Day{index + 1}
+            <Box flex="1" fontWeight="bold" textAlign="left">
+              Day {index + 1}
             </Box>
             <AccordionIcon />
           </AccordionButton>
