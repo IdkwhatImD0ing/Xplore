@@ -1,6 +1,6 @@
-import {Box, Image, Text, Badge, Checkbox, Flex} from '@chakra-ui/react'
+import { Badge, Box, Checkbox, Flex, Image, Text } from "@chakra-ui/react";
 
-const AttractionCard = ({name, image, rating}) => {
+const AttractionCard = ({ name, image, rating }) => {
   return (
     <Box
       borderWidth="1px"
@@ -9,6 +9,7 @@ const AttractionCard = ({name, image, rating}) => {
       w="100%"
       minH="300px"
     >
+      {" "}
       <Image
         src={image}
         alt={`Image of ${name}`}
@@ -26,7 +27,7 @@ const AttractionCard = ({name, image, rating}) => {
         </Badge>
       </Flex>
     </Box>
-  )
-}
+  );
+};
 
-export default AttractionCard
+export default AttractionCard;
