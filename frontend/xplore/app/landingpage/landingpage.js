@@ -63,16 +63,15 @@ const LandingPage = ({ userButton }) => {
         >
           <Box maxWidth="90%" w="full" mx="auto">
             <Heading as="h1" size="4xl" mb="4" color="purple.500">
-              Plan. Discover.{" "}
+              Plan .Discover.{" "}
               <Text as="span" color="purple.200">
-                Xplore.
+                Xplore .
               </Text>
             </Heading>
 
             <Text fontSize="md" mb="10" color="gray.400">
               {" "}
-              {/* Increased bottom margin */}
-              The best travel companion ever!
+              {/* Increased bottom margin */} The best travel companion ever!
             </Text>
 
             <Button
