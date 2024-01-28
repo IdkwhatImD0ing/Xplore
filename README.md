@@ -5,13 +5,15 @@ Thus, the concept for Xplore was born, an intuitive app designed to take the com
 ## What it does
 Xplore is your ultimate travel companion, designed to effortlessly craft the perfect itinerary for your next city adventure. Simply input your chosen destination, and Xplore taps into the power of the Yelp Fusion API to curate a list of top-rated attractions, ensuring you experience the best a city has to offer. To guarantee the reliability of your travel plans, each location is verified through the Melissa API, providing a seamless integration of accurate contact data and location validity. With Xplore, you're not just visiting; you're immersing yourself in the highest-rated experiences, handpicked and validated, for an unforgettable journey every time.
 ## How we built it
+- Next.js + Chakra UI
 - Melissa API
 - Yelp Fusion API
 ## Challenges we ran into
-everything
+- Melissa API
 ## Accomplishments that we're proud of
-we did it :D
+- 
 ## What we learned
-that the word 'itinerary' is apparently not easy for some to say
+- that the word 'itinerary' is apparently not easy for some to say
 ## What's next
-- implementing hotels and restaurants as destinations
+- light/dark mode
+- hi
