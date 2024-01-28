@@ -1,188 +1,189 @@
 'use client'
 
 import React, {useState} from 'react'
-import {Box, Button, SimpleGrid, Text, Flex, Select} from '@chakra-ui/react'
+import{Box, Button, SimpleGrid, Text, Flex, Select} from '@chakra-ui/react'
 import AttractionCard from './AttractionCard'
 
-const citiesData = [
-  {
-    cityName: 'Metroville',
-    attractions: [
+const citiesData =
+    [
       {
-        attractionName: 'Central Park',
-        image: 'https://via.placeholder.com/150',
-        rating: 4,
+        cityName : 'Metroville',
+        attractions : [
+          {
+            attractionName : 'Central Park',
+            image : 'https://via.placeholder.com/150',
+            rating : 4,
+          },
+          {
+            attractionName : 'Metro Museum',
+            image : 'https://via.placeholder.com/150',
+            rating : 5,
+          },
+          {
+            attractionName : 'Skyline Tower',
+            image : 'https://via.placeholder.com/150',
+            rating : 3,
+          },
+          {
+            attractionName : 'Riverside Walk',
+            image : 'https://via.placeholder.com/150',
+            rating : 4,
+          },
+          {
+            attractionName : 'Grand Library',
+            image : 'https://via.placeholder.com/150',
+            rating : 5,
+          },
+          {
+            attractionName : 'Festival Market',
+            image : 'https://via.placeholder.com/150',
+            rating : 3,
+          },
+        ],
       },
       {
-        attractionName: 'Metro Museum',
-        image: 'https://via.placeholder.com/150',
-        rating: 5,
+        cityName : 'Coastalbay',
+        attractions : [
+          {
+            attractionName : 'Sandy Beach',
+            image : 'https://via.placeholder.com/150',
+            rating : 4,
+          },
+          {
+            attractionName : 'Ocean Aquarium',
+            image : 'https://via.placeholder.com/150',
+            rating : 5,
+          },
+          {
+            attractionName : 'Coastal Park',
+            image : 'https://via.placeholder.com/150',
+            rating : 3,
+          },
+          {
+            attractionName : 'Bay Market',
+            image : 'https://via.placeholder.com/150',
+            rating : 4,
+          },
+          {
+            attractionName : 'Sunset Pier',
+            image : 'https://via.placeholder.com/150',
+            rating : 5,
+          },
+          {
+            attractionName : 'Marine Museum',
+            image : 'https://via.placeholder.com/150',
+            rating : 3,
+          },
+        ],
       },
       {
-        attractionName: 'Skyline Tower',
-        image: 'https://via.placeholder.com/150',
-        rating: 3,
+        cityName : 'Highland',
+        attractions : [
+          {
+            attractionName : 'Mountain Viewpoint',
+            image : 'https://via.placeholder.com/150',
+            rating : 4,
+          },
+          {
+            attractionName : 'Highland Zoo',
+            image : 'https://via.placeholder.com/150',
+            rating : 5,
+          },
+          {
+            attractionName : 'Eagle Park',
+            image : 'https://via.placeholder.com/150',
+            rating : 3,
+          },
+          {
+            attractionName : 'Highland Market',
+            image : 'https://via.placeholder.com/150',
+            rating : 4,
+          },
+          {
+            attractionName : 'Old Town',
+            image : 'https://via.placeholder.com/150',
+            rating : 5,
+          },
+          {
+            attractionName : 'Museum of Highland',
+            image : 'https://via.placeholder.com/150',
+            rating : 3,
+          },
+        ],
       },
       {
-        attractionName: 'Riverside Walk',
-        image: 'https://via.placeholder.com/150',
-        rating: 4,
+        cityName : 'Riverfork',
+        attractions : [
+          {
+            attractionName : 'Riverwalk',
+            image : 'https://via.placeholder.com/150',
+            rating : 4,
+          },
+          {
+            attractionName : 'Forking Gardens',
+            image : 'https://via.placeholder.com/150',
+            rating : 5,
+          },
+          {
+            attractionName : 'Riverfork Museum',
+            image : 'https://via.placeholder.com/150',
+            rating : 3,
+          },
+          {
+            attractionName : 'Aquatic Center',
+            image : 'https://via.placeholder.com/150',
+            rating : 4,
+          },
+          {
+            attractionName : 'Historic Bridge',
+            image : 'https://via.placeholder.com/150',
+            rating : 5,
+          },
+          {
+            attractionName : 'River Market',
+            image : 'https://via.placeholder.com/150',
+            rating : 3,
+          },
+        ],
       },
       {
-        attractionName: 'Grand Library',
-        image: 'https://via.placeholder.com/150',
-        rating: 5,
+        cityName : 'Pinecrest',
+        attractions : [
+          {
+            attractionName : 'Pine Forest',
+            image : 'https://via.placeholder.com/150',
+            rating : 4,
+          },
+          {
+            attractionName : 'Crest Museum',
+            image : 'https://via.placeholder.com/150',
+            rating : 5,
+          },
+          {
+            attractionName : 'Pinecrest Gardens',
+            image : 'https://via.placeholder.com/150',
+            rating : 3,
+          },
+          {
+            attractionName : 'Old Pine Church',
+            image : 'https://via.placeholder.com/150',
+            rating : 4,
+          },
+          {
+            attractionName : 'Pine Market',
+            image : 'https://via.placeholder.com/150',
+            rating : 5,
+          },
+          {
+            attractionName : 'Crest Theater',
+            image : 'https://via.placeholder.com/150',
+            rating : 3,
+          },
+        ],
       },
-      {
-        attractionName: 'Festival Market',
-        image: 'https://via.placeholder.com/150',
-        rating: 3,
-      },
-    ],
-  },
-  {
-    cityName: 'Coastalbay',
-    attractions: [
-      {
-        attractionName: 'Sandy Beach',
-        image: 'https://via.placeholder.com/150',
-        rating: 4,
-      },
-      {
-        attractionName: 'Ocean Aquarium',
-        image: 'https://via.placeholder.com/150',
-        rating: 5,
-      },
-      {
-        attractionName: 'Coastal Park',
-        image: 'https://via.placeholder.com/150',
-        rating: 3,
-      },
-      {
-        attractionName: 'Bay Market',
-        image: 'https://via.placeholder.com/150',
-        rating: 4,
-      },
-      {
-        attractionName: 'Sunset Pier',
-        image: 'https://via.placeholder.com/150',
-        rating: 5,
-      },
-      {
-        attractionName: 'Marine Museum',
-        image: 'https://via.placeholder.com/150',
-        rating: 3,
-      },
-    ],
-  },
-  {
-    cityName: 'Highland',
-    attractions: [
-      {
-        attractionName: 'Mountain Viewpoint',
-        image: 'https://via.placeholder.com/150',
-        rating: 4,
-      },
-      {
-        attractionName: 'Highland Zoo',
-        image: 'https://via.placeholder.com/150',
-        rating: 5,
-      },
-      {
-        attractionName: 'Eagle Park',
-        image: 'https://via.placeholder.com/150',
-        rating: 3,
-      },
-      {
-        attractionName: 'Highland Market',
-        image: 'https://via.placeholder.com/150',
-        rating: 4,
-      },
-      {
-        attractionName: 'Old Town',
-        image: 'https://via.placeholder.com/150',
-        rating: 5,
-      },
-      {
-        attractionName: 'Museum of Highland',
-        image: 'https://via.placeholder.com/150',
-        rating: 3,
-      },
-    ],
-  },
-  {
-    cityName: 'Riverfork',
-    attractions: [
-      {
-        attractionName: 'Riverwalk',
-        image: 'https://via.placeholder.com/150',
-        rating: 4,
-      },
-      {
-        attractionName: 'Forking Gardens',
-        image: 'https://via.placeholder.com/150',
-        rating: 5,
-      },
-      {
-        attractionName: 'Riverfork Museum',
-        image: 'https://via.placeholder.com/150',
-        rating: 3,
-      },
-      {
-        attractionName: 'Aquatic Center',
-        image: 'https://via.placeholder.com/150',
-        rating: 4,
-      },
-      {
-        attractionName: 'Historic Bridge',
-        image: 'https://via.placeholder.com/150',
-        rating: 5,
-      },
-      {
-        attractionName: 'River Market',
-        image: 'https://via.placeholder.com/150',
-        rating: 3,
-      },
-    ],
-  },
-  {
-    cityName: 'Pinecrest',
-    attractions: [
-      {
-        attractionName: 'Pine Forest',
-        image: 'https://via.placeholder.com/150',
-        rating: 4,
-      },
-      {
-        attractionName: 'Crest Museum',
-        image: 'https://via.placeholder.com/150',
-        rating: 5,
-      },
-      {
-        attractionName: 'Pinecrest Gardens',
-        image: 'https://via.placeholder.com/150',
-        rating: 3,
-      },
-      {
-        attractionName: 'Old Pine Church',
-        image: 'https://via.placeholder.com/150',
-        rating: 4,
-      },
-      {
-        attractionName: 'Pine Market',
-        image: 'https://via.placeholder.com/150',
-        rating: 5,
-      },
-      {
-        attractionName: 'Crest Theater',
-        image: 'https://via.placeholder.com/150',
-        rating: 3,
-      },
-    ],
-  },
-]
+    ]
 
-const Home = () => {
+    const Home = () => {
   const [currentCityIndex, setCurrentCityIndex] = useState(0)
   const currentCity = citiesData[currentCityIndex]
 
