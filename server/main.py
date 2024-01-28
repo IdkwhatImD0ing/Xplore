@@ -57,7 +57,7 @@ class GeocodeInput(BaseModel):
 def read_root():
     return {"Hello": "World"}
 
-@app.post("/generate-route/")
+@app.post("/generate-route")
 def generate_route(data: GeneticAlgorithmInput):
     all_variations = []  # Store all variations of routes
 
@@ -99,12 +99,12 @@ def generate_route(data: GeneticAlgorithmInput):
 
     return all_variations
 
-@app.post("/attractions/")
+@app.post("/attractions")
 async def get_attractions(data: AttractionsInput):
     attractions = await attractions_wrapper(data.cities, data.preferences)
     return attractions
 
-@app.post("/geocode-multiple/")
+@app.post("/geocode-multiple")
 async def geocode_multiple_cities(data: GeocodeInput):
     locations = []
     for city in data.cities:
