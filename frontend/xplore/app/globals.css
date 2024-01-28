@@ -66,34 +66,3 @@ a {
   }
 }
 
-label {
-  display: block;
-  padding: 2px;
-}
-
-form {
-  padding: 10px;
-}
-h1 {
-  font-size: 1.3rem;
-  font-weight: 700;
-  /* margin-top: 1rem; */
-  background-image: var(--linearPrimaryAccent);
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent; 
-  -moz-text-fill-color: transparent;
-}
-h2 {
-  font-size: 1.2rem;
-  margin-top: 0.8rem;
-}
-
-button, input {
-  border: 1px solid var(--secondary);
-  border-radius: 50px;
-  margin: 5px;
-  padding: 0.3rem;
-  padding-left: 0.6rem;
-  padding-right: 0.6rem;
-}
