@@ -25,7 +25,7 @@ const LandingPage = () => {
           color="white"
         >
           <Image
-            src="/images/logo.png"
+            src="/public/icons/icon-512x512.png"
             alt="Company Logo"
             maxW="80%"
             height="auto"
